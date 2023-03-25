@@ -1,11 +1,14 @@
 .header {
-  display: grid;
-  grid-template-columns: 23fr 35fr;
   background-color: var(--background-header);
   color: var(--white);
+  padding: 0 var(--side-padding);
+}
+.header__container {
+  display: grid;
+  grid-template-columns: 23fr 35fr;
   gap: 42px;
   text-transform: none;
-  padding: 180px var(--side-padding) 0;
+  padding-top: 60px;
 }
 .header__title {
   font-size: 44px;
