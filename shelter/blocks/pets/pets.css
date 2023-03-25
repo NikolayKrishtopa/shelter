@@ -1,0 +1,21 @@
+.pets {
+  padding: 80px 145px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  background-color: var(--background-light-grey);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pets__container {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.pets__title {
+  max-width: 400px;
+}

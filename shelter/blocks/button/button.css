@@ -12,4 +12,34 @@
   text-decoration: none;
   box-sizing: border-box;
   display: inline-block;
+  text-align: center;
+}
+
+.button_style_weak {
+  border: 2px solid var(--gold);
+  background-color: transparent;
+}
+.button_place_card {
+  width: 189px;
+}
+.button_type_page {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+}
+.button_type_right {
+  right: 40px;
+  top: 422px;
+  position: absolute;
+  transform: rotate(180deg);
+}
+.button_type_left {
+  left: 40px;
+  top: 422px;
+  position: absolute;
 }

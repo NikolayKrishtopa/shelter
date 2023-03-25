@@ -1,0 +1,22 @@
+.card {
+  width: 270px;
+  height: 435px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  background-color: #fafafa;
+  padding-bottom: 30px;
+}
+.card__img-container {
+  width: 100%;
+}
+
+.card__title {
+  font-family: 'Georgia';
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: var(--primary-dark);
+}

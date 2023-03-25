@@ -3,11 +3,9 @@
   display: grid;
   grid-template-columns: 30fr 43fr;
   gap: 120px;
+  background-color: var(--white);
 }
-.about__img-container {
-}
-.about__img {
-}
+
 .about__title {
   min-width: 370px;
 }
