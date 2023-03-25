@@ -1,0 +1,14 @@
+:root {
+  --primary-dark: #545454;
+  --primary-extra: #4c4c4c;
+  --grey: #b2b2b2;
+  --background: #e5e5e5;
+  --max-width: 1280px;
+  --whyte: #fff;
+  --background: linear-gradient(0deg, #211f20, #211f20),
+    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
+  --font-content: 'Arial', serif;
+  --font-accent: 'Georgia', serif;
+  --gold: #f1cdb3;
+  --side-padding: 40px;
+}
