@@ -1,0 +1,33 @@
+.help {
+  padding: 80px 127px 100px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+.help__title {
+  max-width: 308px;
+  margin-bottom: 60px;
+}
+.help__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 120px;
+  row-gap: 55px;
+  justify-content: center;
+}
+.help__item {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.help__item-title {
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  text-align: center;
+}

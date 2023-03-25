@@ -19,19 +19,19 @@
             <ul class="navbar__menu">
               <li class="navbar__menu-item">
                 <a
-                  href="#"
+                  href="#about"
                   class="navbar__menu-link navbar__menu-link_state_active"
                   >About the shelter</a
                 >
               </li>
               <li class="navbar__menu-item">
-                <a href="#" class="navbar__menu-link">Our pets</a>
+                <a href="#pets" class="navbar__menu-link">Our pets</a>
               </li>
               <li class="navbar__menu-item">
-                <a href="#" class="navbar__menu-link">Help the shelter</a>
+                <a href="#help" class="navbar__menu-link">Help the shelter</a>
               </li>
               <li class="navbar__menu-item">
-                <a href="#" class="navbar__menu-link">Contacts</a>
+                <a href="#contacts" class="navbar__menu-link">Contacts</a>
               </li>
             </ul>
           </nav>
@@ -56,7 +56,7 @@
         </div>
       </header>
       <main>
-        <section class="about">
+        <section class="about" id="about">
           <div class="about__img-container">
             <img
               src="./images/intro.png"
@@ -84,12 +84,12 @@
             </p>
           </div>
         </section>
-        <section class="pets">
+        <section class="pets" id="pets">
           <h2 class="section-title pets__title">
             Our friends who are looking for a house
           </h2>
           <div class="pets__container">
-            <div class="card">
+            <!-- <div class="card">
               <div class="card__img-container">
                 <img
                   src="./images/pets-katrine.png"
@@ -137,11 +137,17 @@
               >
                 <img src="./images/Arrow.svg" alt="Right arrow." />
               </button>
-            </div>
+            </div> -->
           </div>
           <button class="button">Get to know the rest</button>
         </section>
-        <section class="donate">
+        <section class="help" id="help">
+          <h2 class="section-title help__title">
+            How you can help our shelter
+          </h2>
+          <div class="help__container"></div>
+        </section>
+        <section class="donate" id="donate">
           <div class="donate__img-container">
             <img
               src="./images/donation-dog.png"
@@ -168,9 +174,28 @@
             </p>
           </div>
         </section>
-        <main class="content"></main>
       </main>
-      <footer class="footer"></footer>
+      <footer class="footer" id="contacts"></footer>
     </div>
+    <template id="pet-template">
+      <div class="card">
+        <div class="card__img-container">
+          <img src="" alt="" class="card__img" />
+        </div>
+        <h3 class="card__title"></h3>
+        <button class="button button_style_weak button_place_card">
+          Learn
+        </button>
+      </div>
+    </template>
+    <template id="help-template">
+      <div class="help__item">
+        <div class="help__img-container">
+          <img src="" alt="" class="help__img" />
+        </div>
+        <p class="help__item-title"></p>
+      </div>
+    </template>
+    <script src="./pages/index.js"></script>
   </body>
 </html>
