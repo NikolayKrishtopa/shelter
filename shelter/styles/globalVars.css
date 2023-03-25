@@ -2,13 +2,16 @@
   --primary-dark: #545454;
   --primary-extra: #4c4c4c;
   --grey: #b2b2b2;
-  --background: #e5e5e5;
+  --background-outside: #e5e5e5;
   --max-width: 1280px;
-  --whyte: #fff;
-  --background: linear-gradient(0deg, #211f20, #211f20),
-    radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%);
+  --white: #fff;
+  --background-header: #211f20;
   --font-content: 'Arial', serif;
   --font-accent: 'Georgia', serif;
+  --font-extra-color: #cdcdcd;
+  --font-button-color: #292929;
   --gold: #f1cdb3;
   --side-padding: 40px;
+  --background-footer: linear-gradient(0deg, #211f20, #211f20),
+    radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%);
 }
