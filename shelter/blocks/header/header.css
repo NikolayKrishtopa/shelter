@@ -1,5 +1,5 @@
 .header {
-  background-color: var(--background-header);
+  background: var(--background-header);
   color: var(--white);
   padding: 0 var(--side-padding);
 }

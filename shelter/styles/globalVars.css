@@ -5,7 +5,8 @@
   --background-outside: #e5e5e5;
   --max-width: 1280px;
   --white: #fff;
-  --background-header: #211f20;
+  --background-header: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+;
   --background-light-grey: #f6f6f6;
   --font-content: 'Arial', serif;
   --font-accent: 'Georgia', serif;
@@ -13,5 +14,6 @@
   --font-button-color: #292929;
   --gold: #f1cdb3;
   --side-padding: 40px;
-  --background-footer: #211f20;
+  --background-footer: radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
+
