@@ -7,7 +7,7 @@
 }
 
 .about__title {
-  min-width: 370px;
+  max-width: 370px;
 }
 .about__content {
   justify-content: center;

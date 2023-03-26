@@ -12,14 +12,15 @@
   text-decoration: none;
   box-sizing: border-box;
   text-align: center;
+  display: inline-block;
 }
 
 .button_style_weak {
   border: 2px solid var(--gold);
   background-color: transparent;
+  padding: 14px 44px;
 }
-.button_place_card {
-}
+
 .button_type_page {
   padding: 0;
   margin: 0;

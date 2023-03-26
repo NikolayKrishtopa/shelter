@@ -7,15 +7,14 @@
   align-items: center;
 }
 .help__title {
-  max-width: 308px;
-  margin-bottom: 60px;
+  max-width: 310px;
 }
 .help__container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   column-gap: 120px;
-  row-gap: 55px;
+  row-gap: 48px;
   justify-content: center;
 }
 .help__item {

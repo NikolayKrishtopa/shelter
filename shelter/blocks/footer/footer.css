@@ -17,7 +17,7 @@
   max-width: 302px;
   display: flex;
   flex-direction: column;
-  gap: 34px;
+  gap: 40px;
 }
 .footer__title {
   margin: 0;

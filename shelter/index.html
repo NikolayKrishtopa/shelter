@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shelter</title>
     <link rel="stylesheet" href="./pages/index.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
   <body class="root">
     <div class="page">
@@ -63,7 +68,7 @@
           </div>
         </div>
       </header>
-      <main>
+      <main class="page__main">
         <section class="about main" id="about">
           <div class="about__img-container">
             <img
@@ -94,7 +99,7 @@
         </section>
         <section class="pets" id="pets">
           <h2 class="section-title pets__title">
-            Our friends who are looking for a house
+            Our friends who are&nbsp;looking for a house
           </h2>
           <div class="pets__container"></div>
           <button class="clickable button main" id="petsBtn">
@@ -186,9 +191,7 @@
           <img src="" alt="" class="card__img" />
         </div>
         <h3 class="card__title"></h3>
-        <button class="clickable button button_style_weak button_place_card">
-          Learn more
-        </button>
+        <button class="clickable button button_style_weak">Learn more</button>
       </div>
     </template>
     <template id="help-template">
