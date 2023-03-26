@@ -25,6 +25,7 @@
   text-align: left;
 }
 .footer__contact-item {
+  text-decoration: none;
   display: flex;
   gap: 20px;
   align-items: center;

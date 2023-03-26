@@ -38,14 +38,6 @@ const PETS = [
   },
   {
     id: 4,
-    name: 'Scarlett',
-    short: 'Dog - Golden Retriever',
-    description:
-      'Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.',
-    img: 'pets-scarlet.png',
-  },
-  {
-    id: 5,
     name: 'Sophia',
     short: 'Dog - Labrador',
     description:
@@ -53,7 +45,7 @@ const PETS = [
     img: 'pets-sophia.png',
   },
   {
-    id: 6,
+    id: 5,
     name: 'Timmy',
     short: 'Cat - British Shorthair',
     description:
@@ -61,20 +53,28 @@ const PETS = [
     img: 'pets-timmy.png',
   },
   {
-    id: 7,
-    name: 'Freddie',
-    short: 'Cat - British Shorthair',
-    description:
-      'Freddie is a little shy at first, but very sweet when he warms up. He likes playing with shoe strings and bottle caps. He is quick to learn the rhythms of his human’s daily life. Freddie has bounced around a lot in his life, and is looking to find his forever home.',
-    img: 'pets-freddie.png',
-  },
-  {
-    id: 8,
+    id: 6,
     name: 'Charly',
     short:
       'This cute boy, Charly, is three years old and he likes adults and kids. He isn’t fond of many other dogs, so he might do best in a single dog home. Charly has lots of energy, and loves to run and play. We think a fenced yard would make him very happy.',
     description: 'Dog - Jack Russell Terrier ',
     img: 'pets-charly.png',
+  },
+  {
+    id: 7,
+    name: 'Scarlett',
+    short: 'Dog - Golden Retriever',
+    description:
+      'Scarlett is a happy, playful girl who will make you laugh and smile. She forms a bond quickly and will make a loyal companion and a wonderful family dog or a good companion for a single individual too since she likes to hang out and be with her human.',
+    img: 'pets-scarlet.png',
+  },
+  {
+    id: 8,
+    name: 'Freddie',
+    short: 'Cat - British Shorthair',
+    description:
+      'Freddie is a little shy at first, but very sweet when he warms up. He likes playing with shoe strings and bottle caps. He is quick to learn the rhythms of his human’s daily life. Freddie has bounced around a lot in his life, and is looking to find his forever home.',
+    img: 'pets-freddie.png',
   },
 ];
 
@@ -86,6 +86,7 @@ const PAGES = {
 class Main {
   constructor(pages, pets, helps) {
     this.mainOnly = document.querySelectorAll('.main');
+    this.petsOnly = document.querySelectorAll('.for-pets');
     this.pages = pages;
     this.petslist = pets;
     this.helps = helps;
@@ -167,6 +168,7 @@ class Main {
     switch (this.currentPage) {
       case this.pages.main:
         this.mainOnly.forEach((m) => m.classList.remove('disabled'));
+        this.petsOnly.forEach((m) => m.classList.add('disabled'));
         this.header.classList.remove('header_state_pets');
         this.navbarSubtitle.classList.remove('navbar__subtitle_state_pets');
         this.navbarTitle.classList.remove('navbar__title_state_pets');
@@ -180,6 +182,7 @@ class Main {
         break;
       case this.pages.pets:
         this.mainOnly.forEach((m) => m.classList.add('disabled'));
+        this.petsOnly.forEach((m) => m.classList.remove('disabled'));
         this.header.classList.add('header_state_pets');
         this.navbarSubtitle.classList.add('navbar__subtitle_state_pets');
         this.navbarTitle.classList.add('navbar__title_state_pets');
