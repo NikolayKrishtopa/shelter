@@ -28,3 +28,7 @@
 .pets__title {
   max-width: 400px;
 }
+.pets__pagination {
+  display: flex;
+  gap: 20px;
+}

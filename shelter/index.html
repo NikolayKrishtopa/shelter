@@ -16,7 +16,7 @@
     <div class="page">
       <header class="header">
         <div class="navbar">
-          <div class="navbar__logo">
+          <div class="navbar__logo linkToMain clickable">
             <h1 class="navbar__title">Cozy House</h1>
             <p class="navbar__subtitle">Shelter for pets in Boston</p>
           </div>
@@ -101,17 +101,53 @@
           <h2 class="section-title pets__title">
             Our friends who are&nbsp;looking for a house
           </h2>
-          <div class="pets__container"></div>
+          <ul class="pets__container"></ul>
           <button class="clickable button main" id="petsBtn">
             Get to know the rest
           </button>
+          <div class="pets__pagination">
+            <button
+              disabled
+              class="button clickable main button button_style_weak button_type_page button_state_inactive"
+            >
+              <img
+                src="./images/pagination_icon_double.svg"
+                alt="To first page"
+              />
+            </button>
+            <button
+              disabled
+              class="button clickable main button button_style_weak button_type_page button_state_inactive"
+            >
+              <img src="./images/pagination_icon.svg" alt="To previous page" />
+            </button>
+            <button class="button clickable main button button_type_page">
+              1
+            </button>
+            <button
+              class="button clickable main button button_style_weak button_type_page"
+            >
+              <img
+                src="./images/pagination_icon_right.svg"
+                alt="To next page"
+              />
+            </button>
+            <button
+              class="button clickable main button button_style_weak button_type_page"
+            >
+              <img
+                src="./images/pagination_icon_right_double.svg"
+                alt="To last page"
+              />
+            </button>
+          </div>
           <button
             class="clickable main button button_style_weak button_type_page button_type_left"
           >
             <img src="./images/Arrow.svg" alt="Left arrow." />
           </button>
           <button
-            class="clickable main button button_style_weak button_type_page button_type_right"
+            class="clickable main button button_style_weak button_type_page button_type_right button_style_rotated"
           >
             <img src="./images/Arrow.svg" alt="Right arrow." />
           </button>
@@ -120,7 +156,7 @@
           <h2 class="section-title help__title">
             How you can help our shelter
           </h2>
-          <div class="help__container"></div>
+          <ul class="help__container"></ul>
         </section>
         <section class="donate main" id="donate">
           <div class="donate__img-container">
@@ -151,31 +187,29 @@
         </section>
       </main>
       <footer class="footer" id="contacts">
-        <div class="footer__columns">
-          <div class="footer__column">
-            <p class="footer__title">For questions and suggestions</p>
-            <div class="footer__contact-item">
-              <img src="./images/icon-email.svg" alt="Email" />
-              <p class="footer__contact-text">email@shelter.com</p>
-            </div>
-            <div class="footer__contact-item">
-              <img src="./images/icon-phone.svg" alt="Phone" />
-              <p class="footer__contact-text">+13 674 567 75 54</p>
-            </div>
+        <div class="footer__content">
+          <p class="footer__title">For questions and suggestions</p>
+          <p class="footer__title">We are waiting for your visit</p>
+          <div class="footer__contact-item">
+            <img src="./images/icon-email.svg" alt="Email" />
+            <p class="footer__contact-text">email@shelter.com</p>
           </div>
-          <div class="footer__column">
-            <p class="footer__title">We are waiting for your visit</p>
-            <div class="footer__contact-item">
-              <img src="./images/icon-marker.png" alt="Email" />
-              <p class="footer__contact-text">
-                1 Central Street, Boston (entrance from the store)
-              </p>
-            </div>
-            <div class="footer__contact-item">
-              <img src="./images/icon-marker.png" alt="Phone" />
-              <p class="footer__contact-text">18 South Park, London</p>
-            </div>
+          <div class="footer__contact-item">
+            <img src="./images/icon-marker.png" alt="Email" />
+            <p class="footer__contact-text">
+              1 Central Street, Boston (entrance from the store)
+            </p>
           </div>
+          <div class="footer__contact-item">
+            <img src="./images/icon-phone.svg" alt="Phone" />
+            <p class="footer__contact-text">+13 674 567 75 54</p>
+          </div>
+
+          <div class="footer__contact-item">
+            <img src="./images/icon-marker.png" alt="Phone" />
+            <p class="footer__contact-text">18 South Park, London</p>
+          </div>
+          >
         </div>
         <div class="footer__img-container">
           <img
@@ -186,21 +220,21 @@
       </footer>
     </div>
     <template id="pet-template">
-      <div class="card">
+      <li class="card">
         <div class="card__img-container">
           <img src="" alt="" class="card__img" />
         </div>
         <h3 class="card__title"></h3>
         <button class="clickable button button_style_weak">Learn more</button>
-      </div>
+      </li>
     </template>
     <template id="help-template">
-      <div class="help__item">
+      <li class="help__item">
         <div class="help__img-container">
           <img src="" alt="" class="help__img" />
         </div>
         <p class="help__item-title"></p>
-      </div>
+      </li>
     </template>
     <script src="./pages/index.js"></script>
   </body>

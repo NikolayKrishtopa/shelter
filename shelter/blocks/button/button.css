@@ -20,6 +20,10 @@
   background-color: transparent;
   padding: 14px 44px;
 }
+.button_state_inactive {
+  border-color: var(--font-extra-color);
+  pointer-events: none;
+}
 
 .button_type_page {
   padding: 0;
@@ -35,10 +39,12 @@
   right: 40px;
   top: 422px;
   position: absolute;
-  transform: rotate(180deg);
 }
 .button_type_left {
   left: 40px;
   top: 422px;
   position: absolute;
+}
+.button_style_rotated {
+  transform: rotate(180deg);
 }

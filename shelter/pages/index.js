@@ -106,8 +106,7 @@ class Main {
     this.navbarSubtitle = document.querySelector('.navbar__subtitle');
     console.log(this.navbarSubtitle);
     this.navbarTitle = document.querySelector('.navbar__title');
-    this.setListeners();
-    this.render();
+    this.initiate();
   }
   createHelpElement = (help) => {
     const helpElement = this.helpTemplate.content
@@ -121,10 +120,12 @@ class Main {
     return helpElement;
   };
 
-  renderHelps = () =>
+  renderHelps = () => {
+    if (this.helpsContainer.childNodes.length) return;
     this.helps.forEach((h) =>
       this.helpsContainer.append(this.createHelpElement(h))
     );
+  };
   createPetElement = (pet) => {
     const petElement = this.petTemplate.content
       .cloneNode(true)
@@ -192,6 +193,10 @@ class Main {
       default:
         break;
     }
+  };
+  initiate = () => {
+    this.setListeners();
+    this.render();
   };
 }
 

@@ -6,19 +6,16 @@
   justify-content: space-between;
   align-items: start;
 }
-.footer__columns {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  max-width: 740px;
-}
-.footer__column {
+.footer__content {
   margin-top: 16px;
-  max-width: 302px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 302px));
+  width: 100%;
+  max-width: 740px;
+  row-gap: 32px;
+  justify-content: space-between;
 }
+
 .footer__title {
   margin: 0;
   font-family: 'Georgia';
