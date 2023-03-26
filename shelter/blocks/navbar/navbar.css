@@ -19,6 +19,9 @@
   text-align: left;
   color: var(--gold);
 }
+.navbar__title_state_pets {
+  color: var(--primary-dark);
+}
 .navbar__subtitle {
   margin: 0;
   font-family: 'Arial';
@@ -27,6 +30,9 @@
   letter-spacing: 0.1em;
   text-align: left;
   color: var(--white);
+}
+.navbar__subtitle_state_pets {
+  color: var(--primary-dark);
 }
 .navbar__menu {
   margin: 0;
@@ -48,6 +54,9 @@
   text-align: left;
   text-decoration: none;
   color: var(--font-extra-color);
+}
+.navbar__menu-link_state_pets {
+  color: var(--primary-dark);
 }
 .navbar__menu-link_state_active {
   border-bottom: 3px solid var(--gold);

@@ -3,6 +3,9 @@
   color: var(--white);
   padding: 0 var(--side-padding);
 }
+.header_state_pets {
+  background-color: var(--white);
+}
 .header__container {
   display: grid;
   grid-template-columns: 23fr 35fr;

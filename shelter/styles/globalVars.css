@@ -13,6 +13,5 @@
   --font-button-color: #292929;
   --gold: #f1cdb3;
   --side-padding: 40px;
-  --background-footer: linear-gradient(0deg, #211f20, #211f20),
-    radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%);
+  --background-footer: #211f20;
 }

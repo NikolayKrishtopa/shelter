@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 101fr 76fr;
   gap: 30px;
-  background-color: var(--background-grey);
+  background-color: var(--background-light-grey);
 }
 
 .donate__content {

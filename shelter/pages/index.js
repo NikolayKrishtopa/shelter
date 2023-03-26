@@ -85,9 +85,11 @@ const PAGES = {
 
 class Main {
   constructor(pages, pets, helps) {
+    this.mainOnly = document.querySelectorAll('.main');
     this.pages = pages;
-    this.pets = pets;
+    this.petslist = pets;
     this.helps = helps;
+    this.pets = document.querySelector('.pets');
     this.about = document.querySelector('.about');
     this.help = document.querySelector('.help');
     this.donate = document.querySelector('.donate');
@@ -97,6 +99,14 @@ class Main {
     this.helpTemplate = document.querySelector('#help-template');
     this.petsContainer = document.querySelector('.pets__container');
     this.helpsContainer = document.querySelector('.help__container');
+    this.petsButton = document.querySelector('#petsBtn');
+    this.linksToMain = document.querySelectorAll('.linkToMain');
+    this.links = document.querySelectorAll('.navbar__menu-link');
+    this.header = document.querySelector('.header');
+    this.navbarSubtitle = document.querySelector('.navbar__subtitle');
+    console.log(this.navbarSubtitle);
+    this.navbarTitle = document.querySelector('.navbar__title');
+    this.setListeners();
     this.render();
   }
   createHelpElement = (help) => {
@@ -127,18 +137,57 @@ class Main {
     return petElement;
   };
 
-  renderPets = () =>
-    this.pets
-      .slice(0, 3)
-      .forEach((p) => this.petsContainer.append(this.createPetElement(p)));
+  renderPets = () => {
+    this.petsContainer.querySelectorAll('.card').forEach((c) => c.remove());
+    const itemsToRender =
+      this.currentPage === this.pages.main
+        ? this.petslist.slice(0, 3)
+        : this.petslist;
+    itemsToRender.forEach((p) =>
+      this.petsContainer.append(this.createPetElement(p))
+    );
+    console.log(itemsToRender);
+  };
+
+  setListeners = () => {
+    this.petsButton.addEventListener('click', () => {
+      this.currentPage = this.pages.pets;
+      this.render();
+    });
+    this.linksToMain.forEach((l) => {
+      l.addEventListener('click', () => {
+        this.currentPage = this.pages.main;
+        this.render();
+      });
+    });
+  };
 
   render = () => {
     switch (this.currentPage) {
       case this.pages.main:
+        this.mainOnly.forEach((m) => m.classList.remove('disabled'));
+        this.header.classList.remove('header_state_pets');
+        this.navbarSubtitle.classList.remove('navbar__subtitle_state_pets');
+        this.navbarTitle.classList.remove('navbar__title_state_pets');
+        this.links.forEach((l) =>
+          l.classList.remove('navbar__menu-link_state_pets')
+        );
+        this.petsContainer.classList.remove('pets__container_state_pets');
+        this.pets.classList.remove('pets_state_pets');
         this.renderHelps();
         this.renderPets();
         break;
       case this.pages.pets:
+        this.mainOnly.forEach((m) => m.classList.add('disabled'));
+        this.header.classList.add('header_state_pets');
+        this.navbarSubtitle.classList.add('navbar__subtitle_state_pets');
+        this.navbarTitle.classList.add('navbar__title_state_pets');
+        this.links.forEach((l) =>
+          l.classList.add('navbar__menu-link_state_pets')
+        );
+        this.petsContainer.classList.add('pets__container_state_pets');
+        this.pets.classList.add('pets_state_pets');
+        this.renderPets();
         break;
       default:
         break;

@@ -8,12 +8,21 @@
   justify-content: center;
   position: relative;
 }
+.pets_state_pets {
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
+}
 
 .pets__container {
   width: 100%;
   display: flex;
   gap: 20px;
   justify-content: space-between;
+}
+.pets__container_state_pets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
 }
 
 .pets__title {
