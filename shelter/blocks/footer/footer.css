@@ -4,7 +4,7 @@
   padding: 40px var(--side-padding) 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 }
 .footer__columns {
   width: 100%;
@@ -13,7 +13,8 @@
   max-width: 740px;
 }
 .footer__column {
-  max-width: 270px;
+  margin-top: 16px;
+  max-width: 302px;
   display: flex;
   flex-direction: column;
   gap: 34px;

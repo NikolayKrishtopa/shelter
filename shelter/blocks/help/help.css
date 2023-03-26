@@ -1,5 +1,5 @@
 .help {
-  padding: 80px 127px 100px;
+  padding: 80px 125px 100px;
   background-color: var(--white);
   display: flex;
   flex-direction: column;
@@ -26,6 +26,7 @@
 }
 
 .help__item-title {
+  margin: 0;
   font-size: 20px;
   line-height: 23px;
   letter-spacing: 0.06em;
