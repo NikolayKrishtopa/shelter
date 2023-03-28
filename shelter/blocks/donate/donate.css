@@ -26,6 +26,7 @@
   max-width: 350px;
   flex-grow: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 .donate__card-number {
   margin: 0;
@@ -33,6 +34,7 @@
   line-height: 23px;
   letter-spacing: 0.06em;
   text-align: left;
+  color: var(--primary-dark);
 }
 .donate__subtitle {
   margin: 0;

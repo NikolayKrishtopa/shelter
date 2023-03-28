@@ -100,7 +100,7 @@ class Main {
     this.helpTemplate = document.querySelector('#help-template');
     this.petsContainer = document.querySelector('.pets__container');
     this.helpsContainer = document.querySelector('.help__container');
-    this.petsButton = document.querySelector('#petsBtn');
+    this.petsButtons = document.querySelectorAll('.petsBtn');
     this.linksToMain = document.querySelectorAll('.linkToMain');
     this.links = document.querySelectorAll('.navbar__menu-link');
     this.header = document.querySelector('.header');
@@ -150,10 +150,12 @@ class Main {
   };
 
   setListeners = () => {
-    this.petsButton.addEventListener('click', () => {
-      this.currentPage = this.pages.pets;
-      this.render();
-    });
+    this.petsButtons.forEach((b) =>
+      b.addEventListener('click', () => {
+        this.currentPage = this.pages.pets;
+        this.render();
+      })
+    );
     this.linksToMain.forEach((l) => {
       l.addEventListener('click', () => {
         this.currentPage = this.pages.main;

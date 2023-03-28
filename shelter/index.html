@@ -17,10 +17,10 @@
     <div class="page">
       <header class="header">
         <div class="navbar">
-          <div class="navbar__logo linkToMain clickable">
+          <a class="navbar__logo clickable">
             <h1 class="navbar__title">Cozy House</h1>
             <p class="navbar__subtitle">Shelter for pets in Boston</p>
-          </div>
+          </a>
           <nav>
             <ul class="navbar__menu">
               <li class="navbar__menu-item">
@@ -30,8 +30,8 @@
               </li>
               <li class="navbar__menu-item">
                 <a
-                  href="#pets"
-                  class="clickable navbar__menu-link navbar__menu-link_state_active"
+                  href="#"
+                  class="navbar__menu-link navbar__menu-link_state_active petsBtn"
                   >Our pets</a
                 >
               </li>
@@ -105,7 +105,7 @@
             Our friends who are&nbsp;looking for a house
           </h2>
           <ul class="pets__container"></ul>
-          <button class="clickable button main" id="petsBtn">
+          <button class="clickable button main petsBtn" id="petsBtn">
             Get to know the rest
           </button>
           <div class="pets__pagination for-pets">
@@ -174,10 +174,10 @@
             <p class="donate__subtitle">
               Name of the bank / Type of bank account
             </p>
-            <div class="donate__card">
+            <a href="#" class="donate__card clickable">
               <img src="./images/credit-card.svg" alt="Credit card icon." />
               <p class="donate__card-number">8380 2880 8028 8791 7435</p>
-            </div>
+            </a>
             <p class="donate__paragraph">
               Legal information and lorem ipsum dolor sit amet, consectetur
               adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed
@@ -237,7 +237,7 @@
       </footer>
     </div>
     <template id="pet-template">
-      <li class="card">
+      <li class="card clickable">
         <div class="card__img-container">
           <img src="" alt="" class="card__img" />
         </div>
