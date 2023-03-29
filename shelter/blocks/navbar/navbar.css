@@ -60,4 +60,5 @@
 }
 .navbar__menu-link_state_active {
   border-bottom: 3px solid var(--gold);
+  pointer-events: none;
 }

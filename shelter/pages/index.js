@@ -106,6 +106,8 @@ class Main {
     this.header = document.querySelector('.header');
     this.navbarSubtitle = document.querySelector('.navbar__subtitle');
     this.navbarTitle = document.querySelector('.navbar__title');
+    this.LinkToMain = document.querySelector('#main-link');
+    this.LinkToPets = document.querySelector('#pets-link');
     this.initiate();
   }
   createHelpElement = (help) => {
@@ -177,6 +179,8 @@ class Main {
         );
         this.petsContainer.classList.remove('pets__container_state_pets');
         this.pets.classList.remove('pets_state_pets');
+        this.LinkToMain.classList.add('navbar__menu-link_state_active');
+        this.LinkToPets.classList.remove('navbar__menu-link_state_active');
         this.renderHelps();
         this.renderPets();
         break;
@@ -191,6 +195,8 @@ class Main {
         );
         this.petsContainer.classList.add('pets__container_state_pets');
         this.pets.classList.add('pets_state_pets');
+        this.LinkToMain.classList.remove('navbar__menu-link_state_active');
+        this.LinkToPets.classList.add('navbar__menu-link_state_active');
         this.renderPets();
         break;
       default:
