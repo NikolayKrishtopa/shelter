@@ -1,12 +1,17 @@
 .donate {
   padding: 80px 182px 100px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--background-light-grey);
+  align-items: center;
+  box-sizing: border-box;
+}
+.donate-container {
+  max-width: 915px;
   display: grid;
   grid-template-columns: 101fr 76fr;
   gap: 30px;
-  background-color: var(--background-light-grey);
-  align-items: center;
 }
-
 .donate__content {
   display: flex;
   flex-direction: column;

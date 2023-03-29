@@ -8,9 +8,7 @@
   background-color: #fafafa;
   cursor: pointer;
   transition: 0.5s ease box-shadow;
-}
-.card:hover {
-  box-shadow: 10px 5px 5px lightgray;
+  border-radius: 9px;
 }
 .card__img-container {
   width: 100%;

@@ -6,7 +6,7 @@
   background-color: var(--background-light-grey);
   align-items: center;
   justify-content: center;
-  position: relative;
+  box-sizing: border-box;
 }
 .pets_state_pets {
   padding-left: var(--side-padding);
@@ -15,14 +15,24 @@
 
 .pets__container {
   width: 100%;
+  max-width: 990px;
+  width: 100%;
   padding: 0;
   margin: 0;
   width: 100%;
   display: flex;
   gap: 30px;
   justify-content: space-between;
+  position: relative;
+}
+.pets__wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .pets__container_state_pets {
+  max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(4, 270px);
   grid-template-rows: auto;

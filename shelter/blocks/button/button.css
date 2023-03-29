@@ -43,13 +43,13 @@
   border-radius: 50%;
 }
 .button_type_right {
-  right: 40px;
-  top: 422px;
+  right: 0;
+  top: 192px;
   position: absolute;
 }
 .button_type_left {
-  left: 40px;
-  top: 422px;
+  left: 0;
+  top: 192px;
   position: absolute;
 }
 .button_style_rotated {

@@ -1,9 +1,16 @@
 .about {
-  padding: 80px 215px 100px;
+  padding: 80px 0 100px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--white);
+  width: 100%;
+  box-sizing: border-box;
+}
+.about__container {
   display: grid;
   grid-template-columns: 30fr 43fr;
   gap: 120px;
-  background-color: var(--white);
+  max-width: 850px;
 }
 
 .about__title {

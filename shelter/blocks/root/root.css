@@ -1,8 +1,8 @@
 .root {
-  background-color: var(--background-outside);
-  display: flex;
+  background-color: black;
   justify-content: center;
   font-family: 'Georgia';
   font-weight: 400;
   margin: 0;
+  padding: 0;
 }

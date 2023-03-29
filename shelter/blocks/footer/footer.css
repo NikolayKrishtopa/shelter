@@ -3,6 +3,13 @@
   color: var(--white);
   padding: 40px var(--side-padding) 0;
   display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.footer__container {
+  width: 100%;
+  display: flex;
   justify-content: space-between;
   align-items: start;
 }

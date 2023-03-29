@@ -1,7 +1,12 @@
 .header {
   background: var(--background-header);
   color: var(--white);
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   padding: 0 var(--side-padding);
+  box-sizing: border-box;
 }
 .header_state_pets {
   background: var(--white);
