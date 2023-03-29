@@ -2,7 +2,7 @@ const HELPS = [
   { id: 1, name: 'Pet food', img: 'icon-pet-food.svg' },
   { id: 2, name: 'Transportation', img: 'icon-transportation.svg' },
   { id: 3, name: 'Toys', img: 'icon-toys.svg' },
-  { id: 4, name: 'Bowls and cups', img: 'icon-sleeping-area.svg' },
+  { id: 4, name: 'Bowls and cups', img: 'icon-bowls-and-cups.svg' },
   { id: 5, name: 'Shampoos', img: 'icon-shampoos.svg' },
   { id: 6, name: 'Vitamins', img: 'icon-vitamins.svg' },
   { id: 7, name: 'Medicines', img: 'icon-medicines.svg' },

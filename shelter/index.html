@@ -39,9 +39,7 @@
                 >
               </li>
               <li class="navbar__menu-item">
-                <a
-                  href="#contacts"
-                  class="clickable navbar__menu-link linkToMain"
+                <a href="#contacts" class="clickable navbar__menu-link"
                   >Contacts</a
                 >
               </li>
@@ -57,7 +55,7 @@
               anybody else in the world, you will see!
             </p>
             <div>
-              <a href="#pets" class="clickable button">Make a friend</a>
+              <a href="#pets" class="button">Make a friend</a>
             </div>
           </div>
           <div class="header__img-cantainer">
@@ -103,13 +101,13 @@
             Our friends who are&nbsp;looking for a house
           </h2>
           <ul class="pets__container"></ul>
-          <button class="clickable button main petsBtn" id="petsBtn">
+          <button class="button main petsBtn" id="petsBtn">
             Get to know the rest
           </button>
           <div class="pets__pagination for-pets">
             <button
               disabled
-              class="button clickable button button_style_weak button_type_page button_state_inactive"
+              class="button button button_style_weak button_type_page button_state_inactive"
             >
               <img
                 src="./images/pagination_icon_double.svg"
@@ -118,22 +116,18 @@
             </button>
             <button
               disabled
-              class="button clickable button button_style_weak button_type_page button_state_inactive"
+              class="button button button_style_weak button_type_page button_state_inactive"
             >
               <img src="./images/pagination_icon.svg" alt="To previous page" />
             </button>
-            <button class="button clickable button button_type_page">1</button>
-            <button
-              class="button clickable button button_style_weak button_type_page"
-            >
+            <button class="button button button_type_page">1</button>
+            <button class="button button button_style_weak button_type_page">
               <img
                 src="./images/pagination_icon_right.svg"
                 alt="To next page"
               />
             </button>
-            <button
-              class="button clickable button button_style_weak button_type_page"
-            >
+            <button class="button button button_style_weak button_type_page">
               <img
                 src="./images/pagination_icon_right_double.svg"
                 alt="To last page"
@@ -141,12 +135,12 @@
             </button>
           </div>
           <button
-            class="clickable main button button_style_weak button_type_page button_type_left"
+            class="main button button_style_weak button_type_page button_type_left"
           >
             <img src="./images/Arrow.svg" alt="Left arrow." />
           </button>
           <button
-            class="clickable main button button_style_weak button_type_page button_type_right button_style_rotated"
+            class="main button button_style_weak button_type_page button_type_right button_style_rotated"
           >
             <img src="./images/Arrow.svg" alt="Right arrow." />
           </button>
@@ -172,7 +166,7 @@
             <p class="donate__subtitle">
               Name of the bank / Type of bank account
             </p>
-            <a href="#" class="donate__card clickable">
+            <a href="#no_scroll" class="donate__card clickable">
               <img src="./images/credit-card.svg" alt="Credit card icon." />
               <p class="donate__card-number">8380 2880 8028 8791 7435</p>
             </a>
@@ -190,7 +184,7 @@
           <p class="footer__title">For questions and suggestions</p>
           <p class="footer__title">We are waiting for your visit</p>
           <a
-            class="footer__contact-item"
+            class="clickable footer__contact-item"
             href="mailto:email@shelter.com"
             target="_blank"
           >
@@ -198,7 +192,7 @@
             <p class="footer__contact-text">email@shelter.com</p>
           </a>
           <a
-            class="footer__contact-item"
+            class="clickable footer__contact-item"
             href="https://www.google.com/maps"
             target="_blank"
           >
@@ -208,7 +202,7 @@
             </p>
           </a>
           <a
-            class="footer__contact-item"
+            class="clickable footer__contact-item"
             href="tel:+136745677554"
             target="_blank"
           >
@@ -217,7 +211,7 @@
           </a>
 
           <a
-            class="footer__contact-item"
+            class="clickable footer__contact-item"
             href="https://www.google.com/maps"
             target="_blank"
           >
@@ -235,12 +229,12 @@
       </footer>
     </div>
     <template id="pet-template">
-      <li class="card clickable">
+      <li class="card">
         <div class="card__img-container">
           <img src="" alt="" class="card__img" />
         </div>
         <h3 class="card__title"></h3>
-        <button class="clickable button button_style_weak">Learn more</button>
+        <button class="button button_style_weak">Learn more</button>
       </li>
     </template>
     <template id="help-template">

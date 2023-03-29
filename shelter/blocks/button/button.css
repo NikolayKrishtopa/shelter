@@ -13,6 +13,13 @@
   box-sizing: border-box;
   text-align: center;
   display: inline-block;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+}
+.button:hover,
+.card:hover .button {
+  background-color: var(--gold-hover);
 }
 
 .button_style_weak {
