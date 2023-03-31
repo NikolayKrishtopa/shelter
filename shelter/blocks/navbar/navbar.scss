@@ -6,6 +6,9 @@
   align-items: center;
   box-sizing: border-box;
   width: 100%;
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 30px 10px;
+  }
 }
 .navbar__logo {
   display: flex;
@@ -41,6 +44,9 @@
   display: flex;
   gap: 35px;
   align-items: center;
+  @media screen and (max-width: $breakpoint-tablet) {
+    display: none;
+  }
 }
 .navbar__menu-item {
   margin: 0;
