@@ -1,4 +1,4 @@
-import './index.css';
+import './index.scss';
 import { PAGES } from '../utils/constants';
 import { HELPS } from '../utils/constants';
 import { PETS } from '../utils/constants';

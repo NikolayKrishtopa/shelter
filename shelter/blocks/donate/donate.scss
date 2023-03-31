@@ -2,7 +2,7 @@
   padding: 80px 182px 100px;
   display: flex;
   justify-content: center;
-  background-color: var(--background-light-grey);
+  background-color: $background-light-grey;
   align-items: center;
   box-sizing: border-box;
 }
@@ -23,7 +23,7 @@
 }
 
 .donate__card {
-  background-color: var(--gold);
+  background-color: $gold;
   display: flex;
   gap: 15px;
   padding: 10px 15px;
@@ -39,7 +39,7 @@
   line-height: 23px;
   letter-spacing: 0.06em;
   text-align: left;
-  color: var(--primary-dark);
+  color: $primary-dark;
 }
 .donate__subtitle {
   margin: 0;
@@ -48,7 +48,7 @@
   line-height: 17px;
   letter-spacing: 0.06em;
   text-align: left;
-  color: var(--primary-dark);
+  color: $primary-dark;
 }
 .donate__paragraph {
   margin: 0;
