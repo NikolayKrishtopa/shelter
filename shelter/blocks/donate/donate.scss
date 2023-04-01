@@ -1,22 +1,31 @@
 .donate {
-  padding: 80px 182px 100px;
+  padding: 80px 20px 100px;
   display: flex;
   justify-content: center;
   background-color: $background-light-grey;
   align-items: center;
   box-sizing: border-box;
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 42px 19px;
+  }
 }
 .donate-container {
   max-width: 915px;
   display: grid;
   grid-template-columns: 101fr 76fr;
   gap: 30px;
+  @media screen and (max-width: $breakpoint-tablet) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
 .donate__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+  max-width: 380px;
 }
 .donate__title {
   max-width: 300px;
@@ -32,6 +41,9 @@
   flex-grow: 0;
   box-sizing: border-box;
   text-decoration: none;
+  @media screen and (max-width: $breakpoint-mobile) {
+    max-width: 281px;
+  }
 }
 .donate__card-number {
   margin: 0;
@@ -40,6 +52,10 @@
   letter-spacing: 0.06em;
   text-align: left;
   color: $primary-dark;
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 15px;
+    line-height: 17px;
+  }
 }
 .donate__subtitle {
   margin: 0;
@@ -58,4 +74,10 @@
   line-height: 18px;
   letter-spacing: 0px;
   text-align: left;
+}
+.donate__img-container {
+  width: 100%;
+}
+.donate__img {
+  width: 100%;
 }
