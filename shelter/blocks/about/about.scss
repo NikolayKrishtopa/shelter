@@ -1,16 +1,27 @@
 .about {
-  padding: 80px 0 100px;
+  padding: 80px 20px 100px;
   display: flex;
   justify-content: center;
   background-color: $white;
   width: 100%;
   box-sizing: border-box;
+  box-sizing: border-box;
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    padding: 42px 25px;
+  }
 }
 .about__container {
   display: grid;
   grid-template-columns: 30fr 43fr;
   gap: 120px;
   max-width: 850px;
+  box-sizing: border-box;
+  @media screen and (max-width: $breakpoint-tablet) {
+    display: flex;
+    flex-direction: column-reverse;
+    max-width: 430px;
+    align-items: center;
+  }
 }
 
 .about__title {
@@ -31,4 +42,16 @@
   letter-spacing: 0px;
   text-align: left;
   color: $primary-extra;
+}
+.about__img-container {
+  width: 100%;
+
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding-left: 5px;
+    box-sizing: border-box;
+    padding-right: 5px;
+  }
+}
+.about__img {
+  width: 100%;
 }

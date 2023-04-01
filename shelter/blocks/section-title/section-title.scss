@@ -7,7 +7,15 @@
   letter-spacing: 0.06em;
   text-align: center;
   color: $primary-dark;
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 25px;
+    line-height: 33px;
+    text-align: center;
+  }
 }
 .section-title_side_left {
   text-align: left;
+  @media screen and (max-width: $breakpoint-mobile) {
+    text-align: center;
+  }
 }

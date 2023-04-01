@@ -45,11 +45,6 @@
     font-size: 32px;
     line-height: 40px;
   }
-  @media screen and (max-width: $breakpoint-mobile) {
-    font-size: 25px;
-    line-height: 33px;
-    text-align: center;
-  }
 }
 .header__subtitle {
   margin: 0;
