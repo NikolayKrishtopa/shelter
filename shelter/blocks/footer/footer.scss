@@ -17,10 +17,9 @@
   width: 100%;
   display: grid;
   column-gap: auto;
-  justify-items: stretch;
-  grid-template-columns: 37fr 15fr;
+  grid-template-columns: 37fr 12.5fr;
   align-items: end;
-  justify-items: center;
+  justify-content: center;
   column-gap: 20px;
   row-gap: 65px;
   @media screen and (max-width: $breakpoint-tablet) {
@@ -56,6 +55,8 @@
   text-align: left;
   @media screen and (max-width: $breakpoint-mobile) {
     text-align: center;
+    font-size: 25px;
+    line-height: 33px;
   }
 }
 .footer__contact-item {
@@ -64,7 +65,8 @@
   gap: 20px;
   align-items: center;
   @media screen and (max-width: $breakpoint-mobile) {
-    justify-items: center;
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 .footer__contact-text {
@@ -75,9 +77,6 @@
   letter-spacing: 0.06em;
   text-align: left;
   color: $gold;
-  @media screen and (max-width: $breakpoint-mobile) {
-    text-align: center;
-  }
 }
 .footer__img-container {
   align-self: end;

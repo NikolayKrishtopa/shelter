@@ -1,5 +1,5 @@
 .pets {
-  padding: 80px 145px 100px;
+  padding: 80px 105px 100px;
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -7,7 +7,17 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  display: none;
+  position: relative;
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media screen and (max-width: $breakpoint-extra-m) {
+    gap: 42px;
+  }
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    padding: 42px 10px;
+  }
 }
 .pets_state_pets {
   padding-left: $side-padding;
@@ -22,12 +32,16 @@
   margin: 0;
   width: 100%;
   display: flex;
-  gap: 30px;
+  gap: 40px;
   justify-content: space-between;
-  position: relative;
+  @media screen and (max-width: $breakpoint-extra-big) {
+    max-width: 580px;
+  }
+  @media screen and (max-width: $breakpoint-extra-m) {
+    max-width: 270px;
+  }
 }
 .pets__wrapper {
-  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -45,4 +59,26 @@
 .pets__pagination {
   display: flex;
   gap: 20px;
+}
+.pets__nav-buttons {
+  position: absolute;
+  padding-top: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  left: 30px;
+  @media screen and (max-width: $breakpoint-tablet) {
+    left: 30px;
+    right: 30px;
+  }
+  @media screen and (max-width: $breakpoint-extra-m) {
+    position: static;
+    gap: 80px;
+    justify-content: center;
+    align-self: center;
+    margin-bottom: -20px;
+  }
+}
+.pets__card {
+  z-index: 2;
 }

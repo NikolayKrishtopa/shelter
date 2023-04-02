@@ -45,6 +45,12 @@
     font-size: 32px;
     line-height: 40px;
   }
+  @media screen and (max-width: $breakpoint-mobile) {
+    font-size: 25px;
+    line-height: 32px;
+    text-align: center;
+    max-width: 200px;
+  }
 }
 .header__subtitle {
   margin: 0;
@@ -59,7 +65,7 @@
   }
 }
 .header__content {
-  padding: 0 0 40px;
+  padding: 0 0 80px;
   display: flex;
   flex-direction: column;
   gap: 42px;

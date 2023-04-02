@@ -28,6 +28,7 @@ class Main {
     this.navbarTitle = document.querySelector('.navbar__title');
     this.LinkToMain = document.querySelector('#main-link');
     this.LinkToPets = document.querySelector('#pets-link');
+    this.setItemsQtyPerScreen(window.outerWidth);
     this.initiate();
   }
   createHelpElement = (help) => {
@@ -64,7 +65,7 @@ class Main {
     this.petsContainer.querySelectorAll('.card').forEach((c) => c.remove());
     const itemsToRender =
       this.currentPage === this.pages.main
-        ? this.petslist.slice(0, 3)
+        ? this.petslist.slice(0, this.itemsQty)
         : this.petslist;
     itemsToRender.forEach((p) =>
       this.petsContainer.append(this.createPetElement(p))
@@ -84,8 +85,22 @@ class Main {
         this.render();
       });
     });
+    window.addEventListener('resize', (e) => {
+      const width = e.target.outerWidth;
+      this.setItemsQtyPerScreen(width);
+      this.renderPets();
+    });
   };
 
+  setItemsQtyPerScreen = (width) => {
+    if (width <= 760) {
+      this.itemsQty = 1;
+    } else if (width <= 1100) {
+      this.itemsQty = 2;
+    } else {
+      this.itemsQty = 3;
+    }
+  };
   render = () => {
     switch (this.currentPage) {
       case this.pages.main:
@@ -190,4 +205,4 @@ const REQUIREMENTS = `
 обязательное требование к интерактивности: плавное изменение внешнего вида элемента при наведении и клике, не влияющее на соседние элементы +2'
 `;
 
-console.log(REQUIREMENTS);
+// console.log(REQUIREMENTS);

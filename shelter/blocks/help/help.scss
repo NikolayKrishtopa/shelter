@@ -1,12 +1,14 @@
 .help {
-  padding: 80px 125px 100px;
+  padding: 80px 69px 100px;
   background-color: $white;
   display: flex;
   flex-direction: column;
   gap: 60px;
   align-items: center;
   box-sizing: border-box;
-  display: none;
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    padding: 42px 20px;
+  }
 }
 .help__title {
   max-width: 310px;
@@ -18,9 +20,20 @@
   max-width: 1030px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   column-gap: 120px;
   row-gap: 48px;
   justify-content: center;
+  @media screen and (max-width: $breakpoint-tablet) {
+    column-gap: 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    column-gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .help__item {
   display: flex;

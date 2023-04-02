@@ -108,13 +108,13 @@
           </h2>
           <div class="pets__wrapper width-limiter">
             <ul class="pets__container"></ul>
-            <button
-              class="main button button_style_weak button_type_page button_type_left"
-            >
+          </div>
+          <div class="pets__nav-buttons">
+            <button class="main button button_style_weak button_type_page">
               <img src="./images/Arrow.svg" alt="Left arrow." />
             </button>
             <button
-              class="main button button_style_weak button_type_page button_type_right button_style_rotated"
+              class="main button button_style_weak button_type_page button_style_rotated"
             >
               <img src="./images/Arrow.svg" alt="Right arrow." />
             </button>
@@ -122,6 +122,7 @@
           <button class="button main petsBtn" id="petsBtn">
             Get to know the rest
           </button>
+
           <div class="pets__pagination for-pets">
             <button
               disabled
@@ -240,7 +241,7 @@
       </footer>
     </div>
     <template id="pet-template">
-      <li class="card">
+      <li class="card pets__card">
         <div class="card__img-container">
           <img src="#" alt="" class="card__img" />
         </div>
