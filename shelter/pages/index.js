@@ -99,7 +99,7 @@ class Main {
       });
     });
     window.addEventListener('resize', (e) => {
-      const width = e.target.outerWidth;
+      const width = e.target.innerWidth;
       this.setItemsQtyPerScreen(width);
       this.calcPageQty();
       this.renderPets();
@@ -148,7 +148,7 @@ class Main {
     }
   };
   render = () => {
-    this.setItemsQtyPerScreen(window.outerWidth);
+    this.setItemsQtyPerScreen(window.innerWidth);
     switch (this.currentPage) {
       case this.pages.main:
         this.mainOnly.forEach((m) => m.classList.remove('disabled'));
