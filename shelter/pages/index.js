@@ -114,7 +114,6 @@ class Main {
   };
   render = () => {
     this.setItemsQtyPerScreen(window.outerWidth);
-    console.log(this.petslist);
     switch (this.currentPage) {
       case this.pages.main:
         this.mainOnly.forEach((m) => m.classList.remove('disabled'));
