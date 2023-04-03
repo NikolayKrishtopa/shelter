@@ -61,22 +61,32 @@
   gap: 20px;
 }
 .pets__nav-buttons {
+  display: flex;
   position: absolute;
   padding-top: 30px;
   right: 30px;
-  display: flex;
-  justify-content: space-between;
+  justify-content: center;
   left: 30px;
   @media screen and (max-width: $breakpoint-tablet) {
     left: 30px;
     right: 30px;
+    padding-top: 35px;
   }
   @media screen and (max-width: $breakpoint-extra-m) {
     position: static;
-    gap: 80px;
     justify-content: center;
     align-self: center;
     margin-bottom: -20px;
+  }
+}
+.pets__nav-buttons-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  gap: 80px;
+  @media screen and (max-width: $breakpoint-extra-big) {
+    max-width: 708px;
   }
 }
 .pets__card {

@@ -19,7 +19,7 @@
   column-gap: auto;
   grid-template-columns: 37fr 12.5fr;
   align-items: end;
-  justify-content: center;
+  justify-items: center;
   column-gap: 20px;
   row-gap: 65px;
   @media screen and (max-width: $breakpoint-tablet) {
@@ -37,6 +37,7 @@
   justify-content: space-between;
   @media screen and (max-width: $breakpoint-tablet) {
     margin-bottom: 0;
+    max-width: 640px;
   }
   @media screen and (max-width: $breakpoint-mobile-big) {
     grid-template-columns: 1fr;

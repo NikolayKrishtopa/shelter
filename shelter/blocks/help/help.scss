@@ -1,11 +1,15 @@
 .help {
-  padding: 80px 69px 100px;
+  padding: 80px 73px 100px;
   background-color: $white;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 56px;
   align-items: center;
   box-sizing: border-box;
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   @media screen and (max-width: $breakpoint-mobile-big) {
     padding: 42px 20px;
   }
@@ -20,14 +24,15 @@
   max-width: 1030px;
   display: flex;
   flex-wrap: wrap;
+  column-gap: auto;
+  row-gap: 51px;
   justify-content: center;
-  column-gap: 120px;
-  row-gap: 48px;
-  justify-content: center;
+  align-items: flex-end;
   @media screen and (max-width: $breakpoint-tablet) {
-    column-gap: 70px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    max-width: 630px;
+    grid-template-columns: repeat(3, 170px);
   }
   @media screen and (max-width: $breakpoint-mobile) {
     column-gap: 40px;

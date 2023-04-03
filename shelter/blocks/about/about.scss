@@ -21,6 +21,7 @@
     flex-direction: column-reverse;
     max-width: 430px;
     align-items: center;
+    gap: 80px;
   }
   @media screen and (max-width: $breakpoint-mobile-big) {
     gap: 42px;
@@ -51,7 +52,9 @@
 }
 .about__img-container {
   width: 100%;
-
+  @media screen and (max-width: $breakpoint-tablet) {
+    max-width: 300px;
+  }
   @media screen and (max-width: $breakpoint-mobile) {
     padding-left: 5px;
     box-sizing: border-box;

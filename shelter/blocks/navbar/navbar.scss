@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: flex-end;
 }
 .navbar__title {
   margin: 0;
@@ -44,7 +45,7 @@
   display: flex;
   gap: 35px;
   align-items: center;
-  @media screen and (max-width: $breakpoint-tablet) {
+  @media screen and (max-width: $breakpoint-extra-m) {
     display: none;
   }
 }
@@ -68,4 +69,13 @@
 .navbar__menu-link_state_active {
   border-bottom: 3px solid $gold;
   pointer-events: none;
+}
+.navbar__burger-btn {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  display: none;
+  @media screen and (max-width: $breakpoint-extra-m) {
+    display: block;
+  }
 }

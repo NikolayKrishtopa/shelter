@@ -14,10 +14,12 @@
   display: grid;
   grid-template-columns: 101fr 76fr;
   gap: 30px;
+  align-items: center;
   @media screen and (max-width: $breakpoint-tablet) {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    gap: 60px;
   }
 }
 .donate__content {

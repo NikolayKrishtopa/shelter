@@ -16,6 +16,7 @@
     padding: 0 10px;
   }
 }
+
 .header_state_pets {
   background: $white;
 }
@@ -79,6 +80,7 @@
   }
 }
 .header__img-container {
+  box-sizing: border-box;
   width: 100%;
   @media screen and (max-width: $breakpoint-tablet) {
     text-align: right;

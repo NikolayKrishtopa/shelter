@@ -11,7 +11,7 @@ module.exports = (env) => {
       main: './shelter/pages/index.js',
     },
     output: {
-      path: path.resolve(__dirname, 'shelter', 'dist'),
+      path: path.resolve(__dirname, 'dist'),
       filename: 'main.js',
       publicPath: '',
     },
