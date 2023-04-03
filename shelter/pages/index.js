@@ -31,7 +31,7 @@ class Main {
     this.navbarTitle = document.querySelector('.navbar__title');
     this.LinkToMain = document.querySelector('#main-link');
     this.LinkToPets = document.querySelector('#pets-link');
-    this.setItemsQtyPerScreen(window.outerWidth);
+    this.setItemsQtyPerScreen(window.innerWidth);
     this.initiate();
   }
   createHelpElement = (help) => {
@@ -87,7 +87,7 @@ class Main {
       });
     });
     window.addEventListener('resize', (e) => {
-      const width = e.target.outerWidth;
+      const width = e.target.innerWidth;
       this.setItemsQtyPerScreen(width);
       this.renderPets();
     });
@@ -113,7 +113,7 @@ class Main {
     }
   };
   render = () => {
-    this.setItemsQtyPerScreen(window.outerWidth);
+    this.setItemsQtyPerScreen(window.innerWidth);
     switch (this.currentPage) {
       case this.pages.main:
         this.mainOnly.forEach((m) => m.classList.remove('disabled'));
