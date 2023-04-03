@@ -73,7 +73,7 @@
 .navbar__burger-btn {
   background-color: transparent;
   border: none;
-  padding: 10px;
+  padding: 0;
   display: none;
   @media screen and (max-width: $breakpoint-extra-m) {
     display: block;

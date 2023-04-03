@@ -21,6 +21,9 @@
     align-items: center;
     gap: 60px;
   }
+  @media screen and (max-width: $breakpoint-mobile) {
+    gap: 42px;
+  }
 }
 .donate__content {
   display: flex;
@@ -28,9 +31,15 @@
   justify-content: center;
   gap: 20px;
   max-width: 380px;
+  @media screen and (max-width: $breakpoint-mobile) {
+    align-items: center;
+  }
 }
 .donate__title {
   max-width: 300px;
+  @media screen and (max-width: $breakpoint-mobile) {
+    max-width: 220px;
+  }
 }
 
 .donate__card {
@@ -67,6 +76,9 @@
   letter-spacing: 0.06em;
   text-align: left;
   color: $primary-dark;
+  @media screen and (max-width: $breakpoint-mobile) {
+    letter-spacing: 0;
+  }
 }
 .donate__paragraph {
   margin: 0;
@@ -79,6 +91,9 @@
 }
 .donate__img-container {
   width: 100%;
+  @media screen and (max-width: $breakpoint-mobile) {
+    max-width: 260px;
+  }
 }
 .donate__img {
   width: 100%;

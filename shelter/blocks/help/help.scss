@@ -11,11 +11,15 @@
     padding-right: 20px;
   }
   @media screen and (max-width: $breakpoint-mobile-big) {
-    padding: 42px 20px;
+    padding: 42px 15px;
+    gap: 32px;
   }
 }
 .help__title {
   max-width: 310px;
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    max-width: 240px;
+  }
 }
 .help__container {
   padding: 0;
@@ -24,20 +28,25 @@
   max-width: 1030px;
   display: flex;
   flex-wrap: wrap;
-  column-gap: auto;
   row-gap: 51px;
+  column-gap: 120px;
   justify-content: center;
   align-items: flex-end;
   @media screen and (max-width: $breakpoint-tablet) {
     display: grid;
     justify-content: space-between;
     max-width: 630px;
+    column-gap: 30px;
     grid-template-columns: repeat(3, 170px);
   }
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    grid-template-columns: repeat(3, 130px);
+    row-gap: 23px;
+  }
   @media screen and (max-width: $breakpoint-mobile) {
-    column-gap: 40px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 130px);
+    row-gap: 23px;
+    justify-content: center;
   }
 }
 .help__item {
@@ -45,6 +54,9 @@
   flex-direction: column;
   gap: 30px;
   align-items: center;
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    gap: 14px;
+  }
 }
 
 .help__item-title {
@@ -53,4 +65,13 @@
   line-height: 23px;
   letter-spacing: 0.06em;
   text-align: center;
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    font-size: 15px;
+    line-height: 17px;
+  }
+}
+.help__img-container {
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    transform: scale(0.83);
+  }
 }

@@ -16,18 +16,21 @@
 .footer__container {
   width: 100%;
   display: grid;
-  column-gap: auto;
   grid-template-columns: 37fr 12.5fr;
   align-items: end;
-  justify-items: center;
   column-gap: 20px;
-  row-gap: 65px;
+  row-gap: 52px;
+  justify-content: space-between;
   @media screen and (max-width: $breakpoint-tablet) {
     grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    row-gap: 40px;
   }
 }
 .footer__content {
-  margin-bottom: 60px;
+  margin-bottom: 45px;
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 302px));
   width: 100%;
@@ -44,6 +47,7 @@
   }
   @media screen and (max-width: $breakpoint-mobile) {
     justify-items: center;
+    row-gap: 30px;
   }
 }
 
@@ -58,16 +62,25 @@
     text-align: center;
     font-size: 25px;
     line-height: 33px;
+    max-width: 270px;
+    width: 100%;
+    text-align: center;
   }
 }
 .footer__contact-item {
   text-decoration: none;
   display: flex;
   gap: 20px;
+  min-height: 46px;
   align-items: center;
   @media screen and (max-width: $breakpoint-mobile) {
     width: 100%;
     justify-content: flex-start;
+  }
+}
+.footer__contact-item_type_contact {
+  @media screen and (max-width: $breakpoint-mobile) {
+    justify-content: center;
   }
 }
 .footer__contact-text {
@@ -84,7 +97,19 @@
   max-width: 100%;
   max-width: 300px;
   display: flex;
+  @media screen and (max-width: $breakpoint-mobile) {
+    max-width: 260px;
+  }
 }
 .footer__img {
   width: 100%;
+}
+.footer__content-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media screen and (max-width: $breakpoint-mobile) {
+    align-items: center;
+    align-content: center;
+  }
 }

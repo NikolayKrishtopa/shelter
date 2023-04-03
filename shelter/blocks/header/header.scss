@@ -33,6 +33,9 @@
     justify-items: center;
     padding-top: 30px;
   }
+  @media screen and (max-width: $breakpoint-mobile) {
+    gap: 105px;
+  }
 }
 .header__title {
   font-size: 44px;
@@ -51,6 +54,7 @@
     line-height: 32px;
     text-align: center;
     max-width: 200px;
+    letter-spacing: 0.06em;
   }
 }
 .header__subtitle {
@@ -61,6 +65,7 @@
   letter-spacing: 0px;
   text-align: left;
   max-width: 460px;
+  color: #cdcdcd;
   @media screen and (max-width: $breakpoint-mobile) {
     text-align: center;
   }
