@@ -128,7 +128,8 @@
           <div class="pets__pagination for-pets">
             <button
               disabled
-              class="button button button_style_weak button_type_page button_state_inactive"
+              class="button button button_style_weak button_type_page"
+              id="firstPageBtn"
             >
               <img
                 src="./images/pagination_icon_double.svg"
@@ -137,18 +138,25 @@
             </button>
             <button
               disabled
-              class="button button button_style_weak button_type_page button_state_inactive"
+              class="button button button_style_weak button_type_page"
+              id="prevPageBtn"
             >
               <img src="./images/pagination_icon.svg" alt="To previous page" />
             </button>
-            <button class="button button button_type_page">1</button>
-            <button class="button button button_style_weak button_type_page">
+            <p class="button button button_type_page" id="curPageLabel">1</p>
+            <button
+              class="button button button_style_weak button_type_page"
+              id="nextPageBtn"
+            >
               <img
                 src="./images/pagination_icon_right.svg"
                 alt="To next page"
               />
             </button>
-            <button class="button button button_style_weak button_type_page">
+            <button
+              class="button button button_style_weak button_type_page"
+              id="lastPageBtn"
+            >
               <img
                 src="./images/pagination_icon_right_double.svg"
                 alt="To last page"

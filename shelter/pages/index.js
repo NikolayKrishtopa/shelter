@@ -31,7 +31,12 @@ class Main {
     this.navbarTitle = document.querySelector('.navbar__title');
     this.LinkToMain = document.querySelector('#main-link');
     this.LinkToPets = document.querySelector('#pets-link');
-    this.setItemsQtyPerScreen(window.outerWidth);
+    this.nextPageBtn = document.querySelector('#nextPageBtn');
+    this.firstPageBtn = document.querySelector('#firstPageBtn');
+    this.lastPageBtn = document.querySelector('#lastPageBtn');
+    this.prevPageBtn = document.querySelector('#prevPageBtn');
+    this.curPageLabel = document.querySelector('#curPageLabel');
+    this.curPage = 2;
     this.initiate();
   }
   createHelpElement = (help) => {
@@ -66,11 +71,18 @@ class Main {
 
   renderPets = () => {
     this.petsContainer.querySelectorAll('.card').forEach((c) => c.remove());
-    const itemsToRender = this.petslist.slice(0, this.itemsQty);
+    const itemsToRender = this.petslist.slice(
+      this.itemsQtyPerScreen * (this.curPage - 1),
+      this.itemsQtyPerScreen * this.curPage
+    );
 
     itemsToRender.forEach((p) =>
       this.petsContainer.append(this.createPetElement(p))
     );
+  };
+
+  calcPageQty = () => {
+    this.pagesQty = Math.ceil(this.petslist.length / this.itemsQtyPerScreen);
   };
 
   setListeners = () => {
@@ -89,26 +101,49 @@ class Main {
     window.addEventListener('resize', (e) => {
       const width = e.target.outerWidth;
       this.setItemsQtyPerScreen(width);
+      this.calcPageQty();
+      this.renderPets();
+      console.log(this.itemsQtyPerScreen);
+    });
+    this.nextPageBtn.addEventListener('click', () => {
+      if (this.curPage === this.pagesQty) return;
+      this.curPage++;
+      this.renderPets();
+    });
+    this.prevPageBtn.addEventListener('click', () => {
+      if (this.curPage === 1) return;
+      this.curPage--;
+      this.renderPets();
+    });
+    this.lastPageBtn.addEventListener('click', () => {
+      if (this.curPage === this.pagesQty) return;
+      this.curPage = this.pagesQty;
+      this.renderPets();
+    });
+    this.prevPageBtn.addEventListener('click', () => {
+      if (this.curPage === 1) return;
+      this.curPage = 1;
       this.renderPets();
     });
   };
 
   setItemsQtyPerScreen = (width) => {
+    console.log(width);
     if (this.currentPage === this.pages.main) {
       if (width <= 760) {
-        this.itemsQty = 1;
+        this.itemsQtyPerScreen = 1;
       } else if (width <= 1100) {
-        this.itemsQty = 2;
+        this.itemsQtyPerScreen = 2;
       } else {
-        this.itemsQty = 3;
+        this.itemsQtyPerScreen = 3;
       }
     } else if (this.currentPage === this.pages.pets) {
       if (width <= 660) {
-        this.itemsQty = 3;
+        this.itemsQtyPerScreen = 3;
       } else if (width < 1199) {
-        this.itemsQty = 6;
+        this.itemsQtyPerScreen = 6;
       } else {
-        this.itemsQty = 8;
+        this.itemsQtyPerScreen = 8;
       }
     }
   };
@@ -152,6 +187,8 @@ class Main {
   };
   initiate = () => {
     this.setListeners();
+    this.setItemsQtyPerScreen(window.outerWidth);
+    this.calcPageQty();
     this.render();
   };
 }
