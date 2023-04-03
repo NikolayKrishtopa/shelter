@@ -47,6 +47,7 @@
                 </li>
               </ul>
             </nav>
+            <button class="navbar__burger-btn"></button>
           </div>
           <div class="header__container main">
             <div class="header__content">
@@ -56,12 +57,13 @@
                 extremely wide and open heart. He or she will love you more than
                 anybody else in the world, you will see!
               </p>
-              <div>
+              <div class="header__btn-wrapper">
                 <a href="#pets" class="button">Make a friend</a>
               </div>
             </div>
-            <div class="header__img-cantainer">
+            <div class="header__img-container">
               <img
+                class="header__img"
                 src="./images/header_puppy.png"
                 alt="Puppy looking up."
                 class="header__img"
@@ -107,20 +109,23 @@
           </h2>
           <div class="pets__wrapper width-limiter">
             <ul class="pets__container"></ul>
-            <button
-              class="main button button_style_weak button_type_page button_type_left"
-            >
-              <img src="./images/Arrow.svg" alt="Left arrow." />
-            </button>
-            <button
-              class="main button button_style_weak button_type_page button_type_right button_style_rotated"
-            >
-              <img src="./images/Arrow.svg" alt="Right arrow." />
-            </button>
+          </div>
+          <div class="pets__nav-buttons">
+            <div class="pets__nav-buttons-wrapper">
+              <button class="main button button_style_weak button_type_page">
+                <img src="./images/Arrow.svg" alt="Left arrow." />
+              </button>
+              <button
+                class="main button button_style_weak button_type_page button_style_rotated"
+              >
+                <img src="./images/Arrow.svg" alt="Right arrow." />
+              </button>
+            </div>
           </div>
           <button class="button main petsBtn" id="petsBtn">
             Get to know the rest
           </button>
+
           <div class="pets__pagination for-pets">
             <button
               disabled
@@ -191,45 +196,52 @@
       <footer class="footer" id="contacts">
         <div class="width-limiter footer__container">
           <div class="footer__content">
-            <p class="footer__title">For questions and suggestions</p>
-            <p class="footer__title">We are waiting for your visit</p>
-            <a
-              class="clickable footer__contact-item"
-              href="mailto:email@shelter.com"
-              target="_blank"
-            >
-              <img src="./images/icon-email.svg" alt="Email" />
-              <p class="footer__contact-text">email@shelter.com</p>
-            </a>
-            <a
-              class="clickable footer__contact-item"
-              href="https://www.google.com/maps"
-              target="_blank"
-            >
-              <img src="./images/icon-marker.png" alt="Location" />
-              <p class="footer__contact-text">
-                1 Central Street, Boston (entrance from the store)
-              </p>
-            </a>
-            <a
-              class="clickable footer__contact-item"
-              href="tel:+136745677554"
-              target="_blank"
-            >
-              <img src="./images/icon-phone.svg" alt="Phone" />
-              <p class="footer__contact-text">+13 674 567 75 54</p>
-            </a>
-            <a
-              class="clickable footer__contact-item"
-              href="https://www.google.com/maps"
-              target="_blank"
-            >
-              <img src="./images/icon-marker.png" alt="Location" />
-              <p class="footer__contact-text">18 South Park, London</p>
-            </a>
+            <div class="footer__content-column">
+              <p class="footer__title">For questions and suggestions</p>
+              <a
+                class="clickable footer__contact-item footer__contact-item_type_contact"
+                href="mailto:email@shelter.com"
+                target="_blank"
+              >
+                <img src="./images/icon-email.svg" alt="Email" />
+                <p class="footer__contact-text">email@shelter.com</p>
+              </a>
+              <a
+                class="clickable footer__contact-item footer__contact-item_type_contact"
+                href="tel:+136745677554"
+                target="_blank"
+              >
+                <img src="./images/icon-phone.svg" alt="Phone" />
+                <p class="footer__contact-text">+13 674 567 75 54</p>
+              </a>
+            </div>
+            <div class="footer__content-column">
+              <p class="footer__title">We are waiting for your visit</p>
+
+              <a
+                class="clickable footer__contact-item"
+                href="https://www.google.com/maps"
+                target="_blank"
+              >
+                <img src="./images/icon-marker.png" alt="Location" />
+                <p class="footer__contact-text">
+                  1 Central Street, Boston (entrance from the store)
+                </p>
+              </a>
+
+              <a
+                class="clickable footer__contact-item"
+                href="https://www.google.com/maps"
+                target="_blank"
+              >
+                <img src="./images/icon-marker.png" alt="Location" />
+                <p class="footer__contact-text">18 South Park, London</p>
+              </a>
+            </div>
           </div>
           <div class="footer__img-container">
             <img
+              class="footer__img"
               src="./images/footer-puppy.png"
               alt="Ginger puppy leaking the screen."
             />
@@ -238,7 +250,7 @@
       </footer>
     </div>
     <template id="pet-template">
-      <li class="card">
+      <li class="card pets__card">
         <div class="card__img-container">
           <img src="#" alt="" class="card__img" />
         </div>

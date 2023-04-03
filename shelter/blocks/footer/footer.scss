@@ -1,0 +1,115 @@
+.footer {
+  background: $background-footer;
+  color: $white;
+  padding: 40px $side-padding 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding-top: 30px;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 30px 10px 0;
+  }
+}
+.footer__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 37fr 12.5fr;
+  align-items: end;
+  column-gap: 20px;
+  row-gap: 52px;
+  justify-content: space-between;
+  @media screen and (max-width: $breakpoint-tablet) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    row-gap: 40px;
+  }
+}
+.footer__content {
+  margin-bottom: 45px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 302px));
+  width: 100%;
+  max-width: 740px;
+  row-gap: 32px;
+  column-gap: 20px;
+  justify-content: space-between;
+  @media screen and (max-width: $breakpoint-tablet) {
+    margin-bottom: 0;
+    max-width: 640px;
+  }
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    grid-template-columns: 1fr;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    justify-items: center;
+    row-gap: 30px;
+  }
+}
+
+.footer__title {
+  margin: 0;
+  font-family: 'Georgia';
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+  text-align: left;
+  @media screen and (max-width: $breakpoint-mobile) {
+    text-align: center;
+    font-size: 25px;
+    line-height: 33px;
+    max-width: 270px;
+    width: 100%;
+    text-align: center;
+  }
+}
+.footer__contact-item {
+  text-decoration: none;
+  display: flex;
+  gap: 20px;
+  min-height: 46px;
+  align-items: center;
+  @media screen and (max-width: $breakpoint-mobile) {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+.footer__contact-item_type_contact {
+  @media screen and (max-width: $breakpoint-mobile) {
+    justify-content: center;
+  }
+}
+.footer__contact-text {
+  margin: 0;
+  font-family: 'Georgia';
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: $gold;
+}
+.footer__img-container {
+  align-self: end;
+  max-width: 100%;
+  max-width: 300px;
+  display: flex;
+  @media screen and (max-width: $breakpoint-mobile) {
+    max-width: 260px;
+  }
+}
+.footer__img {
+  width: 100%;
+}
+.footer__content-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  @media screen and (max-width: $breakpoint-mobile) {
+    align-items: center;
+    align-content: center;
+  }
+}

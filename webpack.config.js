@@ -11,7 +11,7 @@ module.exports = (env) => {
       main: './shelter/pages/index.js',
     },
     output: {
-      path: path.resolve(__dirname, 'shelter', 'dist'),
+      path: path.resolve(__dirname, 'dist'),
       filename: 'main.js',
       publicPath: '',
     },
@@ -49,9 +49,23 @@ module.exports = (env) => {
               loader: 'css-loader',
               options: {
                 importLoaders: 1,
+                url: false,
               },
             },
             'postcss-loader',
+          ],
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            // Creates `style` nodes from JS strings
+            mode === 'development'
+              ? 'style-loader'
+              : MiniCssExtractPlugin.loader,
+            // Translates CSS into CommonJS
+            'css-loader',
+            // Compiles Sass to CSS
+            'sass-loader',
           ],
         },
       ],

@@ -1,14 +1,14 @@
 .button {
   border: none;
   padding: 15px 45px;
-  background-color: var(--gold);
+  background-color: $gold;
   font-size: 17px;
   line-height: 22px;
   letter-spacing: 0.06em;
   text-align: left;
   border-radius: 26px;
-  color: var(--font-button-color);
-  background-color: var(--gold);
+  color: $font-button-color;
+  background-color: $gold;
   text-decoration: none;
   box-sizing: border-box;
   text-align: center;
@@ -19,16 +19,16 @@
 }
 .button:hover,
 .card:hover .button {
-  background-color: var(--gold-hover);
+  background-color: $gold-hover;
 }
 
 .button_style_weak {
-  border: 2px solid var(--gold);
+  border: 2px solid $gold;
   background-color: transparent;
   padding: 14px 44px;
 }
 .button_state_inactive {
-  border-color: var(--font-extra-color);
+  border-color: $font-extra-color;
   pointer-events: none;
 }
 
@@ -44,12 +44,12 @@
 }
 .button_type_right {
   right: 0;
-  top: 192px;
+  top: 0;
   position: absolute;
 }
 .button_type_left {
   left: 0;
-  top: 192px;
+  top: 0;
   position: absolute;
 }
 .button_style_rotated {

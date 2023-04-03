@@ -6,11 +6,15 @@
   align-items: center;
   box-sizing: border-box;
   width: 100%;
+  @media screen and (max-width: $breakpoint-mobile) {
+    padding: 30px 10px;
+  }
 }
 .navbar__logo {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: flex-end;
 }
 .navbar__title {
   margin: 0;
@@ -18,10 +22,10 @@
   line-height: 35px;
   letter-spacing: 0.06em;
   text-align: left;
-  color: var(--gold);
+  color: $gold;
 }
 .navbar__title_state_pets {
-  color: var(--primary-dark);
+  color: $primary-dark;
 }
 .navbar__subtitle {
   margin: 0;
@@ -30,10 +34,10 @@
   line-height: 15px;
   letter-spacing: 0.1em;
   text-align: left;
-  color: var(--white);
+  color: $white;
 }
 .navbar__subtitle_state_pets {
-  color: var(--primary-dark);
+  color: $primary-dark;
 }
 .navbar__menu {
   margin: 0;
@@ -41,6 +45,9 @@
   display: flex;
   gap: 35px;
   align-items: center;
+  @media screen and (max-width: $breakpoint-extra-m) {
+    display: none;
+  }
 }
 .navbar__menu-item {
   margin: 0;
@@ -54,12 +61,27 @@
   letter-spacing: 0px;
   text-align: left;
   text-decoration: none;
-  color: var(--font-extra-color);
+  color: $font-extra-color;
 }
 .navbar__menu-link_state_pets {
-  color: var(--primary-dark);
+  color: $primary-dark;
 }
 .navbar__menu-link_state_active {
-  border-bottom: 3px solid var(--gold);
+  border-bottom: 3px solid $gold;
   pointer-events: none;
+}
+.navbar__burger-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: none;
+  background-image: url(../images/Burger.svg);
+  @media screen and (max-width: $breakpoint-extra-m) {
+    display: block;
+  }
 }
