@@ -8,7 +8,10 @@ class Main {
     this.mainOnly = document.querySelectorAll('.main');
     this.petsOnly = document.querySelectorAll('.for-pets');
     this.pages = pages;
-    this.petslist = pets;
+    this.petslist =
+      this.currentPage === this.pages.main
+        ? pets
+        : [...pets, ...pets, ...pets, ...pets];
     this.helps = helps;
     this.pets = document.querySelector('.pets');
     this.about = document.querySelector('.about');
@@ -63,10 +66,8 @@ class Main {
 
   renderPets = () => {
     this.petsContainer.querySelectorAll('.card').forEach((c) => c.remove());
-    const itemsToRender =
-      this.currentPage === this.pages.main
-        ? this.petslist.slice(0, this.itemsQty)
-        : this.petslist;
+    const itemsToRender = this.petslist.slice(0, this.itemsQty);
+
     itemsToRender.forEach((p) =>
       this.petsContainer.append(this.createPetElement(p))
     );
@@ -93,15 +94,27 @@ class Main {
   };
 
   setItemsQtyPerScreen = (width) => {
-    if (width <= 760) {
-      this.itemsQty = 1;
-    } else if (width <= 1100) {
-      this.itemsQty = 2;
-    } else {
-      this.itemsQty = 3;
+    if (this.currentPage === this.pages.main) {
+      if (width <= 760) {
+        this.itemsQty = 1;
+      } else if (width <= 1100) {
+        this.itemsQty = 2;
+      } else {
+        this.itemsQty = 3;
+      }
+    } else if (this.currentPage === this.pages.pets) {
+      if (width <= 660) {
+        this.itemsQty = 3;
+      } else if (width < 1199) {
+        this.itemsQty = 6;
+      } else {
+        this.itemsQty = 8;
+      }
     }
   };
   render = () => {
+    this.setItemsQtyPerScreen(window.outerWidth);
+    console.log(this.petslist);
     switch (this.currentPage) {
       case this.pages.main:
         this.mainOnly.forEach((m) => m.classList.remove('disabled'));

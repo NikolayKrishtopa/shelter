@@ -11,6 +11,7 @@
   @media screen and (max-width: $breakpoint-tablet) {
     padding-left: 30px;
     padding-right: 30px;
+    padding-bottom: 76px;
   }
   @media screen and (max-width: $breakpoint-extra-m) {
     gap: 42px;
@@ -22,6 +23,13 @@
 .pets_state_pets {
   padding-left: $side-padding;
   padding-right: $side-padding;
+  @media screen and (max-width: $breakpoint-tablet) {
+    gap: 30px;
+  }
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 .pets__container {
@@ -51,6 +59,22 @@
   display: grid;
   grid-template-columns: repeat(4, 270px);
   grid-template-rows: auto;
+  column-gap: unset;
+  @media screen and (max-width: 1199px) {
+    grid-template-columns: repeat(3, 270px);
+    max-width: 890px;
+  }
+  @media screen and (max-width: 970px) {
+    grid-template-columns: repeat(2, 270px);
+    max-width: 580px;
+  }
+  @media screen and (max-width: $breakpoint-tablet) {
+    row-gap: 30px;
+  }
+  @media screen and (max-width: 660px) {
+    grid-template-columns: repeat(1, 270px);
+    max-width: 270px;
+  }
 }
 
 .pets__title {
@@ -59,6 +83,12 @@
 .pets__pagination {
   display: flex;
   gap: 20px;
+  @media screen and (max-width: $breakpoint-tablet) {
+    margin-top: 7px;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    gap: 10px;
+  }
 }
 .pets__nav-buttons {
   display: flex;
