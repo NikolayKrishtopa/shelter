@@ -71,10 +71,16 @@
   pointer-events: none;
 }
 .navbar__burger-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: transparent;
   border: none;
   padding: 0;
   display: none;
+  background-image: url(../images/Burger.svg);
   @media screen and (max-width: $breakpoint-extra-m) {
     display: block;
   }

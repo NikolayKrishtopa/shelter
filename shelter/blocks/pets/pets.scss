@@ -74,6 +74,7 @@
   @media screen and (max-width: 660px) {
     grid-template-columns: repeat(1, 270px);
     max-width: 270px;
+    margin-top: 12px;
   }
 }
 
@@ -88,6 +89,7 @@
   }
   @media screen and (max-width: $breakpoint-mobile) {
     gap: 10px;
+    margin: 0;
   }
 }
 .pets__nav-buttons {

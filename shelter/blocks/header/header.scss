@@ -19,6 +19,9 @@
 
 .header_state_pets {
   background: $white;
+  .navbar__burger-btn {
+    background-image: url(../images/BurgerBlack.svg);
+  }
 }
 .header__container {
   display: grid;
