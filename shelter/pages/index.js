@@ -8,12 +8,9 @@ class Main {
     this.mainOnly = document.querySelectorAll('.main');
     this.petsOnly = document.querySelectorAll('.for-pets');
     this.pages = pages;
-    this.petslist =
-      this.currentPage === this.pages.main
-        ? pets
-        : [...pets, ...pets, ...pets, ...pets];
+    this.pets = pets;
     this.helps = helps;
-    this.pets = document.querySelector('.pets');
+    this.petsSection = document.querySelector('.pets');
     this.about = document.querySelector('.about');
     this.help = document.querySelector('.help');
     this.donate = document.querySelector('.donate');
@@ -39,6 +36,13 @@ class Main {
     this.curPage = 2;
     this.initiate();
   }
+
+  calculatePetsList = () => {
+    this.petsList =
+      this.currentPage === this.pages.main
+        ? this.pets
+        : [...this.pets, ...this.pets, ...this.pets, ...this.pets];
+  };
   createHelpElement = (help) => {
     const helpElement = this.helpTemplate.content
       .cloneNode(true)
@@ -71,7 +75,7 @@ class Main {
 
   renderPets = () => {
     this.petsContainer.querySelectorAll('.card').forEach((c) => c.remove());
-    const itemsToRender = this.petslist.slice(
+    const itemsToRender = this.petsList.slice(
       this.itemsQtyPerScreen * (this.curPage - 1),
       this.itemsQtyPerScreen * this.curPage
     );
@@ -82,13 +86,16 @@ class Main {
   };
 
   calcPageQty = () => {
-    this.pagesQty = Math.ceil(this.petslist.length / this.itemsQtyPerScreen);
+    this.pagesQty = Math.ceil(this.petsList.length / this.itemsQtyPerScreen);
   };
 
   setListeners = () => {
     this.petsButtons.forEach((b) =>
       b.addEventListener('click', () => {
         this.currentPage = this.pages.pets;
+        this.curPage = 1;
+        this.calculatePetsList();
+        this.calcPageQty();
         this.render();
       })
     );
@@ -103,32 +110,37 @@ class Main {
       this.setItemsQtyPerScreen(width);
       this.calcPageQty();
       this.renderPets();
-      console.log(this.itemsQtyPerScreen);
     });
     this.nextPageBtn.addEventListener('click', () => {
       if (this.curPage === this.pagesQty) return;
-      this.curPage++;
+      this.curPage += 1;
+      this.renderPageNo();
       this.renderPets();
     });
     this.prevPageBtn.addEventListener('click', () => {
       if (this.curPage === 1) return;
-      this.curPage--;
+      this.curPage -= 1;
+      this.renderPageNo();
       this.renderPets();
     });
     this.lastPageBtn.addEventListener('click', () => {
       if (this.curPage === this.pagesQty) return;
       this.curPage = this.pagesQty;
+      this.renderPageNo();
       this.renderPets();
     });
-    this.prevPageBtn.addEventListener('click', () => {
+    this.firstPageBtn.addEventListener('click', () => {
       if (this.curPage === 1) return;
       this.curPage = 1;
+      this.renderPageNo();
       this.renderPets();
     });
   };
 
+  renderPageNo = () => {
+    this.curPageLabel.textContent = this.curPage;
+  };
   setItemsQtyPerScreen = (width) => {
-    console.log(width);
     if (this.currentPage === this.pages.main) {
       if (width <= 760) {
         this.itemsQtyPerScreen = 1;
@@ -160,7 +172,7 @@ class Main {
           l.classList.remove('navbar__menu-link_state_pets')
         );
         this.petsContainer.classList.remove('pets__container_state_pets');
-        this.pets.classList.remove('pets_state_pets');
+        this.petsSection.classList.remove('pets_state_pets');
         this.LinkToMain.classList.add('navbar__menu-link_state_active');
         this.LinkToPets.classList.remove('navbar__menu-link_state_active');
         this.renderHelps();
@@ -176,9 +188,11 @@ class Main {
           l.classList.add('navbar__menu-link_state_pets')
         );
         this.petsContainer.classList.add('pets__container_state_pets');
-        this.pets.classList.add('pets_state_pets');
+        this.petsSection.classList.add('pets_state_pets');
         this.LinkToMain.classList.remove('navbar__menu-link_state_active');
         this.LinkToPets.classList.add('navbar__menu-link_state_active');
+        this.calcPageQty();
+        this.renderPageNo();
         this.renderPets();
         break;
       default:
@@ -186,6 +200,7 @@ class Main {
     }
   };
   initiate = () => {
+    this.calculatePetsList();
     this.setListeners();
     this.setItemsQtyPerScreen(window.outerWidth);
     this.calcPageQty();
@@ -195,55 +210,6 @@ class Main {
 
 const main = new Main(PAGES, PETS, HELPS);
 
-const REQUIREMENTS = `
-Требования к вёрстке
-Вёрстка страницы Main соответствует макету при ширине экрана 1280px: +14
-блок <header>: +2
-блок Not only: +2
-блок About: +2
-блок Our Friends: +2
-блок Help: +2
-блок In addition: +2
-блок <footer>: +2
-Вёрстка страницы Main соответствует макету при ширине экрана 768px: +14
-блок <header>: +2
-блок Not only: +2
-блок About: +2
-блок Our Friends: +2
-блок Help: +2
-блок In addition: +2
-блок <footer>: +2
-Вёрстка страницы Main соответствует макету при ширине экрана 320px: +14
-блок <header>: +2
-блок Not only: +2
-блок About: +2
-блок Our Friends: +2
-блок Help: +2
-блок In addition: +2
-блок <footer>: +2
-Вёрстка страницы Pets соответствует макету при ширине экрана 1280px: +6
-блок <header>: +2
-блок Our Friends: +2
-блок <footer>: +2
-Вёрстка страницы Pets соответствует макету при ширине экрана 768px: +6
-блок <header>: +2
-блок Our Friends: +2
-блок <footer>: +2
-Вёрстка страницы Pets соответствует макету при ширине экрана 320px: +6
-блок <header>: +2
-блок Our Friends: +2
-блок <footer>: +2
-Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки, справа от отдельных блоков не появляются белые поля. Весь контент страницы при этом сохраняется: не обрезается и не удаляется: +20
-нет полосы прокрутки при ширине страницы Main от 1280рх до 768рх: +5
-нет полосы прокрутки при ширине страницы Main от 768рх до 320рх: +5
-нет полосы прокрутки при ширине страницы Pets от 1280рх до 768рх: +5
-нет полосы прокрутки при ширине страницы Pets от 768рх до 320рх: +5
-Верстка резиновая: при плавном изменении размера экрана от 1280px до 320px верстка подстраивается под этот размер, элементы верстки меняют свои размеры и расположение, не наезжают друг на друга, изображения могут менять размер, но сохраняют правильные пропорции (Примеры неправильной и правильной реализации): +8
-на странице Main: +4
-на странице Pets: +4
-При ширине экрана меньше 768px на обеих страницах меню в хедере скрывается, появляется иконка бургер-меню: +4
-Открытие меню при клике на иконку бургер-меню на текущем этапе не проверяется
-Верстка обеих страниц валидная: для проверки валидности вёрстки используйте сервис https://validator.w3.org/ : +8
-`;
+const REQUIREMENTS = ``;
 
 // console.log(REQUIREMENTS);
