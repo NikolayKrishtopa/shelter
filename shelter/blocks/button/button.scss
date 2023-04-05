@@ -41,6 +41,33 @@
   height: 52px;
   width: 52px;
   border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#firstPageBtn {
+  background-image: url(../images/pagination_arrow_double.svg);
+  &.button_state_inactive {
+    background-image: url(../images/pagination_arrow_double_fade.svg);
+  }
+}
+#lastPageBtn {
+  background-image: url(../images/pagination_arrow_double.svg);
+  &.button_state_inactive {
+    background-image: url(../images/pagination_arrow_double_fade.svg);
+  }
+}
+#prevPageBtn {
+  background-image: url(../images/pagination_arrow.svg);
+  &.button_state_inactive {
+    background-image: url(../images/pagination_arrow_fade.svg);
+  }
+}
+#nextPageBtn {
+  background-image: url(../images/pagination_arrow.svg);
+  &.button_state_inactive {
+    background-image: url(../images/pagination_arrow_fade.svg);
+  }
 }
 .button_type_right {
   right: 0;

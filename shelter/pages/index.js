@@ -43,6 +43,37 @@ class Main {
         ? this.pets
         : [...this.pets, ...this.pets, ...this.pets, ...this.pets];
   };
+  renderBtnState = () => {
+    if (this.curPage === this.pagesQty) {
+      this.nextPageBtn.inactive = true;
+      this.lastPageBtn.inective = true;
+      this.nextPageBtn.classList.add('button_state_inactive');
+      this.lastPageBtn.classList.add('button_state_inactive');
+      this.prevPageBtn.inactive = false;
+      this.firstPageBtn.inective = false;
+      this.prevPageBtn.classList.remove('button_state_inactive');
+      this.firstPageBtn.classList.remove('button_state_inactive');
+    } else if (this.curPage === 1) {
+      this.prevPageBtn.inactive = true;
+      this.firstPageBtn.inective = true;
+      this.prevPageBtn.classList.add('button_state_inactive');
+      this.firstPageBtn.classList.add('button_state_inactive');
+      this.nextPageBtn.inactive = false;
+      this.lastPageBtn.inective = false;
+      this.nextPageBtn.classList.remove('button_state_inactive');
+      this.lastPageBtn.classList.remove('button_state_inactive');
+    } else {
+      this.nextPageBtn.inactive = false;
+      this.lastPageBtn.inective = false;
+      this.nextPageBtn.classList.remove('button_state_inactive');
+      this.lastPageBtn.classList.remove('button_state_inactive');
+      this.prevPageBtn.inactive = false;
+      this.firstPageBtn.inective = false;
+      this.prevPageBtn.classList.remove('button_state_inactive');
+      this.firstPageBtn.classList.remove('button_state_inactive');
+    }
+  };
+
   createHelpElement = (help) => {
     const helpElement = this.helpTemplate.content
       .cloneNode(true)
@@ -116,24 +147,28 @@ class Main {
       this.curPage += 1;
       this.renderPageNo();
       this.renderPets();
+      this.renderBtnState();
     });
     this.prevPageBtn.addEventListener('click', () => {
       if (this.curPage === 1) return;
       this.curPage -= 1;
       this.renderPageNo();
       this.renderPets();
+      this.renderBtnState();
     });
     this.lastPageBtn.addEventListener('click', () => {
       if (this.curPage === this.pagesQty) return;
       this.curPage = this.pagesQty;
       this.renderPageNo();
       this.renderPets();
+      this.renderBtnState();
     });
     this.firstPageBtn.addEventListener('click', () => {
       if (this.curPage === 1) return;
       this.curPage = 1;
       this.renderPageNo();
       this.renderPets();
+      this.renderBtnState();
     });
   };
 
