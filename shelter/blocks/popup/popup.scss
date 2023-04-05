@@ -23,14 +23,32 @@
   max-width: 900px;
   max-height: 80vh;
   cursor: auto;
+  @media screen and (max-width: $breakpoint-extra-big) {
+    max-width: 630px;
+  }
+  @media screen and (max-width: $breakpoint-extra-m) {
+    max-width: 500px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    max-width: 500px;
+    grid-template-columns: 1fr;
+    width: 79%;
+  }
 }
 .popup__photo-container {
   width: 100%;
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    display: none;
+  }
 }
 .popup__close-btn {
   position: absolute;
   right: -42px;
   top: -52px;
+  @media screen and (max-width: $breakpoint-extra-m) {
+    right: -30px;
+  }
 }
 .popup__photo {
   width: 100%;
@@ -41,6 +59,13 @@
   flex-direction: column;
   gap: 40px;
   overflow-y: auto;
+  @media screen and (max-width: $breakpoint-extra-big) {
+    padding: 10px 10px 38px 10px;
+    gap: 20px;
+  }
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    padding: 10px;
+  }
 }
 .popup__title-block {
   display: flex;
@@ -73,6 +98,10 @@
   line-height: 17px;
   letter-spacing: 0.06em;
   text-align: left;
+  @media screen and (max-width: $breakpoint-extra-big) {
+    font-size: 13px;
+    line-height: 14px;
+  }
 }
 .popup__facts {
   display: flex;
@@ -80,6 +109,9 @@
   gap: 11px;
   margin: 0;
   padding: 0;
+  @media screen and (max-width: $breakpoint-extra-big) {
+    gap: 6px;
+  }
 }
 .popup__fact {
   &::marker {
@@ -97,6 +129,7 @@
   line-height: 17px;
   letter-spacing: 0.06em;
   text-align: left;
+  text-transform: capitalize;
 }
 .popup__fact-text {
   font-weight: 400;
