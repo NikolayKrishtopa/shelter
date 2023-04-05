@@ -178,8 +178,7 @@ export default class Pages {
     });
     this.burgerBtn.addEventListener('click', this.toggleSideBar);
     this.navbar.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (e.currentTarget.classList.contains('navbar__menu-item')) {
+      if (e.target.classList.contains('navbar__menu-link')) {
         this.toggleSideBar();
       }
     });
