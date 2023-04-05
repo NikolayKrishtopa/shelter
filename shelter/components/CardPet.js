@@ -11,7 +11,6 @@ export default class CardPet {
   }
   setEventListeners() {
     this.cardElement.addEventListener('click', this.openPetPopup);
-    console.log('click');
   }
   generateCard = () => {
     this.img.src = this.card.img;
