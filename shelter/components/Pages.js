@@ -29,10 +29,21 @@ export default class Pages {
     this.lastPageBtn = document.querySelector('#lastPageBtn');
     this.prevPageBtn = document.querySelector('#prevPageBtn');
     this.curPageLabel = document.querySelector('#curPageLabel');
-    this.curPage = 2;
+    this.curPage = 1;
+    this.isSideBarOpen = false;
+    this.navbar = document.querySelector('.navbar__nav');
+    this.burgerBtn = document.querySelector('.navbar__burger-btn');
     this.initiate();
   }
-
+  renderSideBar = () => {
+    if (this.isSideBarOpen) {
+      this.navbar.classList.add('navbar__nav_open');
+      this.burgerBtn.classList.add('navbar__burger-btn_open');
+    } else {
+      this.navbar.classList.remove('navbar__nav_open');
+      this.burgerBtn.classList.remove('navbar__burger-btn_open');
+    }
+  };
   calculatePetsList = () => {
     this.petsList =
       this.currentPage === this.pages.main
@@ -105,6 +116,15 @@ export default class Pages {
     this.pagesQty = Math.ceil(this.petsList.length / this.itemsQtyPerScreen);
   };
 
+  toggleSideBar = () => {
+    this.isSideBarOpen = !this.isSideBarOpen;
+    this.renderSideBar();
+  };
+  hideSideBar = () => {
+    this.isSideBarOpen = false;
+    this.renderSideBar();
+  };
+
   setListeners = () => {
     this.petsButtons.forEach((b) =>
       b.addEventListener('click', () => {
@@ -126,6 +146,7 @@ export default class Pages {
       this.setItemsQtyPerScreen(width);
       this.calcPageQty();
       this.renderPets();
+      this.hideSideBar();
     });
     this.nextPageBtn.addEventListener('click', () => {
       if (this.curPage === this.pagesQty) return;
@@ -154,6 +175,13 @@ export default class Pages {
       this.renderPageNo();
       this.renderPets();
       this.renderBtnState();
+    });
+    this.burgerBtn.addEventListener('click', this.toggleSideBar);
+    this.navbar.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (e.currentTarget.classList.contains('navbar__menu-item')) {
+        this.toggleSideBar();
+      }
     });
   };
 
