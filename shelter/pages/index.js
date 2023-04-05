@@ -2,249 +2,72 @@ import './index.scss';
 import { PAGES } from '../utils/constants';
 import { HELPS } from '../utils/constants';
 import { PETS } from '../utils/constants';
+import Pages from '../components/Pages';
+import PopupPet from '../components/PopupPet';
+import CardPet from '../components/CardPet';
 
-class Main {
-  constructor(pages, pets, helps) {
-    this.mainOnly = document.querySelectorAll('.main');
-    this.petsOnly = document.querySelectorAll('.for-pets');
-    this.pages = pages;
-    this.pets = pets;
-    this.helps = helps;
-    this.petsSection = document.querySelector('.pets');
-    this.about = document.querySelector('.about');
-    this.help = document.querySelector('.help');
-    this.donate = document.querySelector('.donate');
-    this.headerContent = document.querySelector('.header__container');
-    this.currentPage = this.pages.main;
-    this.petTemplate = document.querySelector('#pet-template');
-    this.helpTemplate = document.querySelector('#help-template');
-    this.petsContainer = document.querySelector('.pets__container');
-    this.helpsContainer = document.querySelector('.help__container');
-    this.petsButtons = document.querySelectorAll('.petsBtn');
-    this.linksToMain = document.querySelectorAll('.linkToMain');
-    this.links = document.querySelectorAll('.navbar__menu-link');
-    this.header = document.querySelector('.header');
-    this.navbarSubtitle = document.querySelector('.navbar__subtitle');
-    this.navbarTitle = document.querySelector('.navbar__title');
-    this.LinkToMain = document.querySelector('#main-link');
-    this.LinkToPets = document.querySelector('#pets-link');
-    this.nextPageBtn = document.querySelector('#nextPageBtn');
-    this.firstPageBtn = document.querySelector('#firstPageBtn');
-    this.lastPageBtn = document.querySelector('#lastPageBtn');
-    this.prevPageBtn = document.querySelector('#prevPageBtn');
-    this.curPageLabel = document.querySelector('#curPageLabel');
-    this.curPage = 2;
-    this.initiate();
-  }
+// Function that gets pet object and renders the popup with pet details
+const openPetPopup = (card) => {
+  popupPet.open(card);
+};
 
-  calculatePetsList = () => {
-    this.petsList =
-      this.currentPage === this.pages.main
-        ? this.pets
-        : [...this.pets, ...this.pets, ...this.pets, ...this.pets];
-  };
-  renderBtnState = () => {
-    if (this.curPage === this.pagesQty) {
-      this.nextPageBtn.inactive = true;
-      this.lastPageBtn.inective = true;
-      this.nextPageBtn.classList.add('button_state_inactive');
-      this.lastPageBtn.classList.add('button_state_inactive');
-      this.prevPageBtn.inactive = false;
-      this.firstPageBtn.inective = false;
-      this.prevPageBtn.classList.remove('button_state_inactive');
-      this.firstPageBtn.classList.remove('button_state_inactive');
-    } else if (this.curPage === 1) {
-      this.prevPageBtn.inactive = true;
-      this.firstPageBtn.inective = true;
-      this.prevPageBtn.classList.add('button_state_inactive');
-      this.firstPageBtn.classList.add('button_state_inactive');
-      this.nextPageBtn.inactive = false;
-      this.lastPageBtn.inective = false;
-      this.nextPageBtn.classList.remove('button_state_inactive');
-      this.lastPageBtn.classList.remove('button_state_inactive');
-    } else {
-      this.nextPageBtn.inactive = false;
-      this.lastPageBtn.inective = false;
-      this.nextPageBtn.classList.remove('button_state_inactive');
-      this.lastPageBtn.classList.remove('button_state_inactive');
-      this.prevPageBtn.inactive = false;
-      this.firstPageBtn.inective = false;
-      this.prevPageBtn.classList.remove('button_state_inactive');
-      this.firstPageBtn.classList.remove('button_state_inactive');
-    }
-  };
+// Function that gets pet object and callback of opening popup
+//  and return layout of the card with click listener
+const createPetCard = (card, openPetPopup) => {
+  return new CardPet(card, openPetPopup).generateCard();
+};
 
-  createHelpElement = (help) => {
-    const helpElement = this.helpTemplate.content
-      .cloneNode(true)
-      .querySelector('.help__item');
-    const img = helpElement.querySelector('.help__img');
-    const text = helpElement.querySelector('.help__item-title');
-    img.src = help.img;
-    img.alt = help.name;
-    text.textContent = help.name;
-    return helpElement;
-  };
+// initiate popup of pet
+const popupPet = new PopupPet();
 
-  renderHelps = () => {
-    if (this.helpsContainer.childNodes.length) return;
-    this.helps.forEach((h) =>
-      this.helpsContainer.append(this.createHelpElement(h))
-    );
-  };
-  createPetElement = (pet) => {
-    const petElement = this.petTemplate.content
-      .cloneNode(true)
-      .querySelector('.card');
-    const img = petElement.querySelector('.card__img');
-    const text = petElement.querySelector('.card__title');
-    img.src = pet.img;
-    img.alt = pet.name;
-    text.textContent = pet.name;
-    return petElement;
-  };
-
-  renderPets = () => {
-    this.petsContainer.querySelectorAll('.card').forEach((c) => c.remove());
-    const itemsToRender = this.petsList.slice(
-      this.itemsQtyPerScreen * (this.curPage - 1),
-      this.itemsQtyPerScreen * this.curPage
-    );
-
-    itemsToRender.forEach((p) =>
-      this.petsContainer.append(this.createPetElement(p))
-    );
-  };
-
-  calcPageQty = () => {
-    this.pagesQty = Math.ceil(this.petsList.length / this.itemsQtyPerScreen);
-  };
-
-  setListeners = () => {
-    this.petsButtons.forEach((b) =>
-      b.addEventListener('click', () => {
-        this.currentPage = this.pages.pets;
-        this.curPage = 1;
-        this.calculatePetsList();
-        this.calcPageQty();
-        this.render();
-      })
-    );
-    this.linksToMain.forEach((l) => {
-      l.addEventListener('click', () => {
-        this.currentPage = this.pages.main;
-        this.render();
-      });
-    });
-    window.addEventListener('resize', (e) => {
-      const width = e.target.innerWidth;
-      this.setItemsQtyPerScreen(width);
-      this.calcPageQty();
-      this.renderPets();
-    });
-    this.nextPageBtn.addEventListener('click', () => {
-      if (this.curPage === this.pagesQty) return;
-      this.curPage += 1;
-      this.renderPageNo();
-      this.renderPets();
-      this.renderBtnState();
-    });
-    this.prevPageBtn.addEventListener('click', () => {
-      if (this.curPage === 1) return;
-      this.curPage -= 1;
-      this.renderPageNo();
-      this.renderPets();
-      this.renderBtnState();
-    });
-    this.lastPageBtn.addEventListener('click', () => {
-      if (this.curPage === this.pagesQty) return;
-      this.curPage = this.pagesQty;
-      this.renderPageNo();
-      this.renderPets();
-      this.renderBtnState();
-    });
-    this.firstPageBtn.addEventListener('click', () => {
-      if (this.curPage === 1) return;
-      this.curPage = 1;
-      this.renderPageNo();
-      this.renderPets();
-      this.renderBtnState();
-    });
-  };
-
-  renderPageNo = () => {
-    this.curPageLabel.textContent = this.curPage;
-  };
-  setItemsQtyPerScreen = (width) => {
-    if (this.currentPage === this.pages.main) {
-      if (width <= 760) {
-        this.itemsQtyPerScreen = 1;
-      } else if (width <= 1100) {
-        this.itemsQtyPerScreen = 2;
-      } else {
-        this.itemsQtyPerScreen = 3;
-      }
-    } else if (this.currentPage === this.pages.pets) {
-      if (width <= 660) {
-        this.itemsQtyPerScreen = 3;
-      } else if (width < 1199) {
-        this.itemsQtyPerScreen = 6;
-      } else {
-        this.itemsQtyPerScreen = 8;
-      }
-    }
-  };
-  render = () => {
-    this.setItemsQtyPerScreen(window.innerWidth);
-    switch (this.currentPage) {
-      case this.pages.main:
-        this.mainOnly.forEach((m) => m.classList.remove('disabled'));
-        this.petsOnly.forEach((m) => m.classList.add('disabled'));
-        this.header.classList.remove('header_state_pets');
-        this.navbarSubtitle.classList.remove('navbar__subtitle_state_pets');
-        this.navbarTitle.classList.remove('navbar__title_state_pets');
-        this.links.forEach((l) =>
-          l.classList.remove('navbar__menu-link_state_pets')
-        );
-        this.petsContainer.classList.remove('pets__container_state_pets');
-        this.petsSection.classList.remove('pets_state_pets');
-        this.LinkToMain.classList.add('navbar__menu-link_state_active');
-        this.LinkToPets.classList.remove('navbar__menu-link_state_active');
-        this.renderHelps();
-        this.renderPets();
-        break;
-      case this.pages.pets:
-        this.mainOnly.forEach((m) => m.classList.add('disabled'));
-        this.petsOnly.forEach((m) => m.classList.remove('disabled'));
-        this.header.classList.add('header_state_pets');
-        this.navbarSubtitle.classList.add('navbar__subtitle_state_pets');
-        this.navbarTitle.classList.add('navbar__title_state_pets');
-        this.links.forEach((l) =>
-          l.classList.add('navbar__menu-link_state_pets')
-        );
-        this.petsContainer.classList.add('pets__container_state_pets');
-        this.petsSection.classList.add('pets_state_pets');
-        this.LinkToMain.classList.remove('navbar__menu-link_state_active');
-        this.LinkToPets.classList.add('navbar__menu-link_state_active');
-        this.calcPageQty();
-        this.renderPageNo();
-        this.renderPets();
-        break;
-      default:
-        break;
-    }
-  };
-  initiate = () => {
-    this.calculatePetsList();
-    this.setListeners();
-    this.setItemsQtyPerScreen(window.outerWidth);
-    this.calcPageQty();
-    this.render();
-  };
-}
-
-const main = new Main(PAGES, PETS, HELPS);
-
-const REQUIREMENTS = ``;
+// initiate main class of the pages
+const pages = new Pages(PAGES, PETS, HELPS, createPetCard, openPetPopup);
+const REQUIREMENTS = `Требования к функционалу
+Реализация burger menu на обеих страницах: +26
+при ширине страницы меньше 768рх панель навигации скрывается, появляется бургер-иконка: +2
+при нажатии на бургер-иконку, справа плавно появляется адаптивное меню шириной 320px, бургер-иконка плавно поворачивается на 90 градусов: +4
+высота адаптивного меню занимает всю высоту экрана: +2
+при повторном нажатии на бургер-иконку или на свободное от бургер-меню пространство адаптивное меню плавно скрывается уезжая за правую часть экрана, бургер-иконка плавно поворачивается на 90 градусов обратно: +4
+бургер-иконка создана при помощи html+css, без использования изображений: +2
+ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям, сохраняются заданные на первом этапе выполнения задания требования интерактивности элементов меню: +2
+при клике по любой ссылке (интерактивной или неинтерактивной) в меню адаптивное меню плавно скрывается вправо, бургер-иконка поворачивается на 90 градусов обратно: +2
+расположение и размеры элементов в бургер-меню соответствует макету (центрирование по вертикали и горизонтали элементов меню, расположение иконки). При этом на странице Pets цветовая схема может быть как темная, так и светлая: +2
+область, свободная от бургер-меню, затемняется: +2
+страница под бургер-меню не прокручивается: +4
+Реализация слайдера-карусели на странице Main: +36
+при нажатии на стрелки происходит переход к новому блоку элементов: +4
+смена блоков происходит с соответствующей анимацией карусели (способ выполнения анимации не проверяется): +4
+слайдер бесконечен, т.е. можно бесконечно много нажимать влево или вправо, и каждый раз будет прокрутка в эту сторону с новым набором карточек: +4
+при переключении влево или вправо прокручивается ровно столько карточек, сколько показывается при текущей ширине экрана (3 для 1280px, 2 для 768px, 1 для 320px): +4
+каждый новый слайд содержит псевдослучайный набор карточек животных, т.е. формируется из исходных объектов в случайном порядке со следующими условиями:
+в текущем блоке слайда карточки с питомцами не повторяются: +4
+в следующем блоке нет дублирования карточек с текущим блоком. Например в слайдере из 3 элементов, следующий выезжающий слайд будет содержать 3 (из 8 доступных) новых карточки питомца, таких, каких не было среди 3х карточек на предыдущем уехавшем слайде: +4
+сохраняется только одно предыдущее состояние. Т.е. при последовательном переходе два раза влево, а потом два раза вправо, мы получим набор карточек, отличный от исходного: +4
+при каждой перезагрузке страницы формируется новая последовательность карточек: +2
+генерация наборов карточек происходит на основе 8 объектов с данными о животными: +2
+при изменении ширины экрана (от 1280px до 320px и обратно), слайдер перестраивается и работает без перезагрузки страницы (набор карточек при этом может как изменяться, так и оставаться тем же, скрывая лишнюю или добавляя недостающую, и сохраняя при этом описанные для слайдера требования): +4
+Реализация пагинации на странице Pets: +36
+при перезагрузке страницы всегда открывается первая страница пагинации: +2
+при нажатии кнопок > или < открывается следующая или предыдущая страница пагинации соответственно: +2
+при нажатии кнопок >> или << открывается последняя или первая страница пагинации соответственно: +2
+при открытии первой страницы кнопки << и < неактивны: +2
+при открытии последней страницы кнопки > и >> неактивны: +2
+в кружке по центру указан номер текущей страницы. При переключении страниц номер меняется на актуальный: +2
+каждая страница пагинации содержит псевдослучайный набор питомцев, т.е. формируется из исходных объектов в случайном порядке со следующими условиями:
+при загрузке страницы формируется массив из 48 объектов питомцев. Каждый из 8 питомцев должен встречаться ровно 6 раз: +4
+при каждой перезагрузке страницы формируется новый массив со случайной последовательностью: +4
+карточки питомцев не должны повторяться на одной странице: +4
+при переключении страницы данные меняются (для >1280px меняется порядок карточек, для остальных - меняется набор и порядок карточек): +4
+при неизменных размерах области пагинации, в том числе размерах окна браузера, и без перезагрузки страницы, возвращаясь на страницу под определенным номером, контент на ней всегда будет одинаков. Т.е. карточки питомцев будут в том же расположении, что и были до перехода на другие страницы: +2
+общее количество страниц при ширине экрана 1280px - 6, при 768px - 8, при 320px - 16 страниц: +2
+при изменении ширины экрана (от 1280px до 320px и обратно), пагинация перестраивается и работает без перезагрузки страницы (страница может оставаться той же или переключаться, при этом сформированный массив - общая последовательность карточек - не обновляется, сохраняются все остальные требования к пагинации): +4
+Реализация попап на обеих страницах: +12
+попап появляется при нажатии на любое место карточки с описанием конкретного животного: +2
+часть страницы вне попапа затемняется: +2
+при открытии попапа вертикальный скролл страницы становится неактивным, при закрытии - снова активным: +2
+при нажатии на область вокруг попапа или на кнопку с крестиком попап закрывается, при этом при нажатии на сам попап ничего не происходит: +2
+кнопка с крестиком интерактивная: +2
+окно попапа (не считая кнопку с крестиком) центрировано по всем осям, размеры элементов попапа и их расположение совпадают с макетом: +2
+Критерии оценки`;
 
 // console.log(REQUIREMENTS);
