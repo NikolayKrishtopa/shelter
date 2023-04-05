@@ -18,8 +18,8 @@ const createPetCard = (card, openPetPopup) => {
 };
 
 // initiate popup of pet
-const popupPet = new PopupPet();
-
+const popupPet = new PopupPet('#popupPet');
+// popupPet.open();
 // initiate main class of the pages
 const pages = new Pages(PAGES, PETS, HELPS, createPetCard, openPetPopup);
 const REQUIREMENTS = `Требования к функционалу

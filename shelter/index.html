@@ -111,11 +111,11 @@
           </div>
           <div class="pets__nav-buttons">
             <div class="pets__nav-buttons-wrapper">
-              <button class="main button button_style_weak button_type_page">
+              <button class="main button button_style_weak button_style_rnd">
                 <img src="./images/Arrow.svg" alt="Left arrow." />
               </button>
               <button
-                class="main button button_style_weak button_type_page button_style_rotated"
+                class="main button button_style_weak button_style_rnd button_style_rotated"
               >
                 <img src="./images/Arrow.svg" alt="Right arrow." />
               </button>
@@ -127,20 +127,20 @@
 
           <div class="pets__pagination for-pets">
             <button
-              class="button button button_style_weak button_type_page button_style_rotated"
+              class="button button button_style_weak button_style_rnd button_style_rotated"
               id="firstPageBtn"
             ></button>
             <button
-              class="button button button_style_weak button_type_page button_style_rotated"
+              class="button button button_style_weak button_style_rnd button_style_rotated"
               id="prevPageBtn"
             ></button>
-            <p class="button button_type_page" id="curPageLabel">1</p>
+            <p class="button button_style_rnd" id="curPageLabel">1</p>
             <button
-              class="button button button_style_weak button_type_page"
+              class="button button button_style_weak button_style_rnd"
               id="nextPageBtn"
             ></button>
             <button
-              class="button button button_style_weak button_type_page"
+              class="button button button_style_weak button_style_rnd"
               id="lastPageBtn"
             ></button>
           </div>
@@ -236,6 +236,60 @@
           </div>
         </div>
       </footer>
+      <div class="popup" id="popupPet">
+        <div class="popup__container">
+          <button
+            class="button button_type_weak button_style_rnd popup__close-btn"
+          >
+            <img
+              src="./images/close_icon.svg"
+              alt="Закрыть окно."
+              class="popup__close-icon"
+            />
+          </button>
+          <div class="popup__photo-container">
+            <img src="#" alt="#" class="popup__photo" />
+          </div>
+          <div class="popup__content">
+            <div class="popup__title-block">
+              <h2 class="popup__title">wewqeweqwe</h2>
+              <p class="popup__subtitle">eevvvv</p>
+            </div>
+            <p class="popup__main-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+              veritatis non esse a, delectus nemo magni accusamus reprehenderit
+              eaque dolorem perferendis labore? Deserunt mollitia autem
+              voluptates consequuntur fuga asperiores adipisci! Pariatur esse
+              dolor officia officiis suscipit sit fuga perferendis rerum
+              repudiandae eligendi veritatis, ea, fugiat ducimus necessitatibus
+              aliquid reiciendis. Voluptatibus ea quia perferendis debitis fugit
+            </p>
+            <ul class="popup__facts">
+              <li class="popup__fact">
+                <span class="popup__fact-title"
+                  >sddda: <span class="popup__fact-text">dadaeeed</span></span
+                >
+              </li>
+              <li class="popup__fact">
+                <span class="popup__fact-title"
+                  >sddda:<span class="popup__fact-text">dadaeeed</span></span
+                >
+              </li>
+              <li class="popup__fact">
+                <span class="popup__fact-title"
+                  >sddda: <span class="popup__fact-text">dadaeeed</span></span
+                >
+              </li>
+            </ul>
+            <template id="popupFactTemplate">
+              <li class="popup__fact">
+                <span class="popup__fact-title"></span>
+                <span class="popup__fact-text"></span>
+              </li>
+            </template>
+          </div>
+        </div>
+      </div>
     </div>
     <template id="pet-template">
       <li class="card pets__card">
