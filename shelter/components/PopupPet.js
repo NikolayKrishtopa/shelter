@@ -27,9 +27,13 @@ export default class PopupPet extends Popup {
     textEl.textContent = text;
     return itemEl;
   }
+  clearList() {
+    Array.from(this.list.children).forEach((e) => e.remove());
+  }
   renderList() {
+    this.clearList();
     for (let key in this.card.facts) {
-      this.list.prepend(this.generateListItem(key, this.card.facts[key]));
+      this.list.append(this.generateListItem(key, this.card.facts[key]));
     }
   }
   open = (card) => {
