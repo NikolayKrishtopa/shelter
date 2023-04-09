@@ -6,13 +6,14 @@
   align-items: center;
   box-sizing: border-box;
   width: 100%;
+  overflow: hidden;
   @media screen and (max-width: $breakpoint-mobile) {
     padding: 30px 10px;
   }
 }
 .navbar__nav {
   @media screen and (max-width: $breakpoint-extra-m) {
-    transform: translateX(100%);
+    // transform: translateX(100%);
     position: absolute;
     top: 0;
     right: 0;
@@ -22,11 +23,12 @@
     background-color: rgba(41, 41, 41, 0.6);
     justify-content: flex-end;
     z-index: 3;
-    transition: transform 0.5s ease;
+    display: none;
+    // transition: transform 0.5s ease;
   }
   &_open {
     display: flex;
-    transform: none;
+    // transform: none;
   }
 }
 .navbar__logo {

@@ -143,7 +143,7 @@ export default class Pages {
       });
     });
     window.addEventListener('resize', (e) => {
-      const width = e.target.innerWidth;
+      const width = e.target.outerWidth;
       this.calculatePetsList();
       if (this.curPage > this.pagesQty) {
         this.curPage = this.pagesQty;
@@ -198,7 +198,7 @@ export default class Pages {
     if (this.currentPage === this.pages.main) {
       if (width <= 760) {
         this.itemsQtyPerScreen = 1;
-      } else if (width <= 1100) {
+      } else if (width > 760 && width <= 1100) {
         this.itemsQtyPerScreen = 2;
       } else {
         this.itemsQtyPerScreen = 3;
