@@ -107,6 +107,9 @@
   .navbar__menu-link {
     color: $active-link-color;
   }
+  .navbar__menu-link_state_pets {
+    color: #292929;
+  }
 }
 .navbar__burger-btn {
   width: 30px;

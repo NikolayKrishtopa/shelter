@@ -130,6 +130,7 @@ export default class Pages {
       b.addEventListener('click', () => {
         this.currentPage = this.pages.pets;
         this.curPage = 1;
+        this.renderBtnState();
         this.calculatePetsList();
         this.calcPageQty();
         this.render();
@@ -143,10 +144,16 @@ export default class Pages {
     });
     window.addEventListener('resize', (e) => {
       const width = e.target.innerWidth;
+      this.calculatePetsList();
+      if (this.curPage > this.pagesQty) {
+        this.curPage = this.pagesQty;
+      }
       this.setItemsQtyPerScreen(width);
       this.calcPageQty();
       this.renderPets();
       this.hideSideBar();
+      this.renderPageNo();
+      this.renderBtnState();
     });
     this.nextPageBtn.addEventListener('click', () => {
       if (this.curPage === this.pagesQty) return;
