@@ -115,6 +115,27 @@ export default class Pages {
       this.itemsQtyPerScreen * (this.curPage - 1),
       this.itemsQtyPerScreen * this.curPage
     );
+    this.itemsNotRendered = this.petsList.slice(
+      this.itemsQtyPerScreen * this.curPage
+    );
+    console.log(this.itemsToRender);
+    console.log(this.itemsNotRendered);
+  };
+
+  handleCarouselNext = () => {
+    this.petsList = [
+      ...this.shuffle(this.itemsNotRendered),
+      ...this.itemsToRender,
+    ];
+    this.renderPets();
+  };
+
+  handleCarouselPrev = () => {
+    this.petsList = [
+      ...this.petsList.slice(this.petsList.length - this.itemsQtyPerScreen),
+      ...this.petsList.slice(0, this.petsList.length - this.itemsQtyPerScreen),
+    ];
+    this.renderPets();
   };
 
   renderPets = () => {
@@ -205,6 +226,8 @@ export default class Pages {
         this.toggleSideBar();
       }
     });
+    this.carouselNextBtn.addEventListener('click', this.handleCarouselNext);
+    this.carouselPrevBtn.addEventListener('click', this.handleCarouselPrev);
   };
 
   renderPageNo = () => {
