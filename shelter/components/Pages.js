@@ -164,6 +164,7 @@ export default class Pages {
   };
 
   handleCarouselNext = () => {
+    console.log(this.petsList);
     this.slideLeft();
     switch (this.lastAction) {
       case 'next':
@@ -194,6 +195,7 @@ export default class Pages {
   };
 
   handleCarouselPrev = () => {
+    console.log(this.petsList);
     this.slideRight();
     this.petsList = [
       ...this.petsList.slice(this.petsList.length - this.itemsQtyPerScreen),
