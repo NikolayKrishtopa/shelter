@@ -118,25 +118,49 @@ export default class Pages {
     this.itemsNotRendered = this.petsList.slice(
       this.itemsQtyPerScreen * this.curPage
     );
-    console.log(this.itemsToRender);
-    console.log(this.itemsNotRendered);
+    // console.log(this.itemsToRender);
+    // console.log(this.itemsNotRendered);
+    console.log(this.petsList);
   };
 
   handleCarouselNext = () => {
-    this.petsList = [
-      ...this.shuffle(this.itemsNotRendered),
-      ...this.itemsToRender,
-    ];
-    this.renderPets();
-    console.log('NEXT');
+    switch (this.lastAction) {
+      case 'next':
+        this.petsList = [
+          ...this.shuffle(this.itemsNotRendered),
+          ...this.itemsToRender,
+        ];
+        this.renderPets();
+        this.lastAction = 'next';
+        break;
+      case undefined:
+        console.log('here');
+        this.petsList = [
+          ...this.shuffle(this.itemsNotRendered),
+          ...this.itemsToRender,
+        ];
+        this.renderPets();
+        this.lastAction = 'next';
+        break;
+      case 'prev':
+        this.petsList = [...this.itemsNotRendered, ...this.itemsToRender];
+        this.renderPets();
+        this.lastAction = 'next';
+        break;
+      default:
+        this.lastAction = 'next';
+        break;
+    }
   };
 
   handleCarouselPrev = () => {
+    console.log(this.lastAction);
     this.petsList = [
       ...this.petsList.slice(this.petsList.length - this.itemsQtyPerScreen),
       ...this.petsList.slice(0, this.petsList.length - this.itemsQtyPerScreen),
     ];
     this.renderPets();
+    this.lastAction = 'prev';
   };
 
   renderPets = () => {
