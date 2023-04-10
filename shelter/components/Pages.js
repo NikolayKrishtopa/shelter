@@ -53,7 +53,7 @@ export default class Pages {
   calculatePetsList = () => {
     this.petsList =
       this.currentPage === this.pages.main
-        ? this.pets
+        ? this.shuffle(this.pets)
         : [
             ...this.shuffle(this.pets),
             ...this.shuffle(this.pets),
