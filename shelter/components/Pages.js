@@ -1,5 +1,7 @@
 export default class Pages {
   constructor(pages, pets, helps, createPetCard, openPetPopup, shuffle) {
+    this.carouselPrevBtn = document.querySelector('#carouselPrevBtn');
+    this.carouselNextBtn = document.querySelector('#carouselNextBtn');
     this.shuffle = shuffle;
     this.createPetCard = createPetCard;
     this.openPetPopup = openPetPopup;
@@ -50,6 +52,8 @@ export default class Pages {
       this.currentPage === this.pages.main
         ? this.pets
         : [
+            ...this.shuffle(this.pets),
+            ...this.shuffle(this.pets),
             ...this.shuffle(this.pets),
             ...this.shuffle(this.pets),
             ...this.shuffle(this.pets),
@@ -106,14 +110,17 @@ export default class Pages {
     );
   };
 
-  renderPets = () => {
-    this.petsContainer.querySelectorAll('.card').forEach((c) => c.remove());
-    const itemsToRender = this.petsList.slice(
+  calcRenderList = () => {
+    this.itemsToRender = this.petsList.slice(
       this.itemsQtyPerScreen * (this.curPage - 1),
       this.itemsQtyPerScreen * this.curPage
     );
+  };
 
-    itemsToRender.forEach((p) =>
+  renderPets = () => {
+    this.petsContainer.innerHTML = '';
+    this.calcRenderList();
+    this.itemsToRender.forEach((p) =>
       this.petsContainer.append(this.createPetCard(p, this.openPetPopup))
     );
   };
@@ -150,7 +157,7 @@ export default class Pages {
     });
     window.addEventListener('resize', (e) => {
       const width = Math.min(e.target.innerWidth, e.target.outerWidth);
-      this.calculatePetsList();
+      // this.calculatePetsList();
       if (this.curPage > this.pagesQty) {
         this.curPage = this.pagesQty;
       }
