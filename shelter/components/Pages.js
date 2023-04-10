@@ -264,7 +264,9 @@ export default class Pages {
     );
     this.linksToMain.forEach((l) => {
       l.addEventListener('click', () => {
+        this.curPage = 1;
         this.currentPage = this.pages.main;
+        this.calculatePetsList();
         this.render();
       });
     });
