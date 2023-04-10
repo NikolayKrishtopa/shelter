@@ -35,9 +35,16 @@
     grid-template-columns: 1fr;
     width: 79%;
   }
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    max-width: 240px;
+  }
 }
 .popup__photo-container {
   width: 100%;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @media screen and (max-width: $breakpoint-mobile-big) {
     display: none;
   }
@@ -52,9 +59,10 @@
 }
 .popup__photo {
   width: 100%;
+  border-radius: 9px;
 }
 .popup__content {
-  padding: 50px 20px 89px 30px;
+  padding: 50px 20px 0 30px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -80,6 +88,9 @@
   line-height: 45px;
   letter-spacing: 0.06em;
   text-align: left;
+  @media screen and (max-width: $breakpoint-mobile) {
+    text-align: center;
+  }
 }
 .popup__subtitle {
   margin: 0;
@@ -89,6 +100,9 @@
   line-height: 23px;
   letter-spacing: 0.06em;
   text-align: left;
+  @media screen and (max-width: $breakpoint-mobile) {
+    text-align: center;
+  }
 }
 .popup__main-text {
   margin: 0;
@@ -106,7 +120,7 @@
 .popup__facts {
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 9px;
   margin: 0;
   padding: 0;
   @media screen and (max-width: $breakpoint-extra-big) {
@@ -114,12 +128,12 @@
   }
 }
 .popup__fact {
+  margin-left: 14px;
   &::marker {
     width: 4px;
     height: 4px;
     border-radius: 50%;
     color: $gold;
-    margin-left: 14px;
   }
 }
 .popup__fact-title {
@@ -127,10 +141,11 @@
   font-size: 15px;
   font-weight: 700;
   line-height: 17px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12em;
   text-align: left;
   text-transform: capitalize;
 }
 .popup__fact-text {
   font-weight: 400;
+  letter-spacing: 0.06em;
 }
