@@ -1,5 +1,6 @@
 export default class Pages {
-  constructor(pages, pets, helps, createPetCard, openPetPopup) {
+  constructor(pages, pets, helps, createPetCard, openPetPopup, shuffle) {
+    this.shuffle = shuffle;
     this.createPetCard = createPetCard;
     this.openPetPopup = openPetPopup;
     this.mainOnly = document.querySelectorAll('.main');
@@ -48,7 +49,12 @@ export default class Pages {
     this.petsList =
       this.currentPage === this.pages.main
         ? this.pets
-        : [...this.pets, ...this.pets, ...this.pets, ...this.pets];
+        : [
+            ...this.shuffle(this.pets),
+            ...this.shuffle(this.pets),
+            ...this.shuffle(this.pets),
+            ...this.shuffle(this.pets),
+          ];
   };
   renderBtnState = () => {
     if (this.curPage === this.pagesQty) {
@@ -198,7 +204,7 @@ export default class Pages {
     if (this.currentPage === this.pages.main) {
       if (width <= 760) {
         this.itemsQtyPerScreen = 1;
-      } else if (width > 760 && width <= 1100) {
+      } else if (width <= 1100) {
         this.itemsQtyPerScreen = 2;
       } else {
         this.itemsQtyPerScreen = 3;

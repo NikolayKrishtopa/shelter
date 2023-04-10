@@ -111,32 +111,43 @@
   }
   .navbar__menu-link_state_pets {
     color: #292929;
+    @media screen and (max-width: $breakpoint-extra-m) {
+      color: $font-extra-color;
+    }
   }
 }
 .navbar__burger-btn {
-  width: 30px;
-  height: 30px;
-  display: flex;
+  width: 35px;
+  height: 35px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  overflow: visible;
+  gap: 10px;
   border: none;
   padding: 0;
   display: none;
-  background-image: url(../images/Burger.svg);
-  background-position: center;
-  background-repeat: no-repeat;
+  box-sizing: border-box;
   transition: transform 0.5s ease, opacity 0.5s ease;
   z-index: 5;
   cursor: pointer;
   @media screen and (max-width: $breakpoint-extra-m) {
-    display: block;
+    display: flex;
   }
   &_open {
     transform: rotate(90deg);
-    background-image: url(../images/Burger.svg) !important;
+    .navbar__burger-btn-strip {
+      background-color: $gold;
+    }
   }
   &:hover {
     opacity: 0.5;
   }
+}
+.navbar__burger-btn-strip {
+  width: 30px;
+  height: 2px;
+  box-sizing: border-box;
+  background-color: $gold;
 }

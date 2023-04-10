@@ -5,6 +5,7 @@ import { PETS } from '../utils/constants';
 import Pages from '../components/Pages';
 import PopupPet from '../components/PopupPet';
 import CardPet from '../components/CardPet';
+import shuffleArray from '../utils/shuffleArray';
 
 // Function that gets pet object and renders the popup with pet details
 const openPetPopup = (card) => {
@@ -21,7 +22,14 @@ const createPetCard = (card, openPetPopup) => {
 const popupPet = new PopupPet('#popupPet');
 // popupPet.open();
 // initiate main class of the pages
-const pages = new Pages(PAGES, PETS, HELPS, createPetCard, openPetPopup);
+const pages = new Pages(
+  PAGES,
+  PETS,
+  HELPS,
+  createPetCard,
+  openPetPopup,
+  shuffleArray
+);
 const REQUIREMENTS = `Требования к функционалу
 Реализация burger menu на обеих страницах: +26
 при ширине страницы меньше 768рх панель навигации скрывается, появляется бургер-иконка: +2

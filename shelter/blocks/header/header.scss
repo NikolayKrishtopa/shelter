@@ -19,8 +19,8 @@
 
 .header_state_pets {
   background: $white;
-  .navbar__burger-btn {
-    background-image: url(../images/BurgerBlack.svg);
+  .navbar__burger-btn-strip {
+    background-color: $black;
   }
 }
 .header__container {
