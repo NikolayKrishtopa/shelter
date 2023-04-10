@@ -224,11 +224,11 @@ export default class Pages {
   };
 
   openSideBar = () => {
-    this.menu.style.transform = 'translateX(100%)';
+    this.menu.classList.add('navbar__menu_moved');
     this.isSideBarOpen = true;
     const timer = setTimeout(() => {
-      this.menu.style.transform = 'translateX(0)';
-      this.burgerBtn.style.transform = 'rotate(90deg)';
+      this.menu.classList.remove('navbar__menu_moved');
+      this.burgerBtn.classList.add('navbar__burger-btn_open');
       return clearTimeout(timer);
     }, '0');
     this.lockScroll();
@@ -236,25 +236,19 @@ export default class Pages {
   };
 
   closeSideBar = () => {
-    this.menu.style.transform = 'translateX(100%)';
-    console.log(this.navbar.querySelector('.navbar__burger-btn'));
-    this.burgerBtn.style.transform = 'none';
+    this.menu.classList.add('navbar__menu_moved');
+    this.burgerBtn.classList.remove('navbar__burger-btn_open');
     const timer = setTimeout(() => {
       this.isSideBarOpen = false;
       this.unlockScroll();
       this.renderSideBar();
-      this.menu.style.transform = 'none';
+      this.menu.classList.remove('navbar__menu_moved');
       return clearTimeout(timer);
     }, '300');
   };
 
   toggleSideBar = () => {
     this.isSideBarOpen ? this.closeSideBar() : this.openSideBar();
-  };
-
-  hideSideBar = () => {
-    this.isSideBarOpen = false;
-    this.renderSideBar();
   };
 
   setListeners = () => {
@@ -276,18 +270,18 @@ export default class Pages {
     });
     window.addEventListener('resize', (e) => {
       const width = Math.min(e.target.innerWidth, e.target.outerWidth);
-      // this.calculatePetsList();
       if (this.curPage > this.pagesQty) {
         this.curPage = this.pagesQty;
       }
       this.setItemsQtyPerScreen(width);
       this.calcPageQty();
       this.renderPets();
-      this.hideSideBar();
+
       this.renderPageNo();
       this.renderBtnState();
-
-      console.log(this.itemsQtyPerScreen);
+      if (width < 767 && this.isSideBarOpen) {
+        this.closeSideBar();
+      }
     });
 
     this.nextPageBtn.addEventListener('click', () => {
@@ -320,11 +314,12 @@ export default class Pages {
     });
     this.burgerBtn.addEventListener('click', this.toggleSideBar);
     this.navbar.addEventListener('click', (e) => {
+      if (!this.isSideBarOpen) return;
       if (
         e.target.classList.contains('navbar__menu-link') ||
         e.target.classList.contains('navbar__nav')
       ) {
-        this.toggleSideBar();
+        this.closeSideBar();
       }
     });
     this.carouselNextBtn.addEventListener('click', this.handleCarouselNext);

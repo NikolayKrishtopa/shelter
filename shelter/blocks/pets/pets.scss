@@ -101,6 +101,9 @@
   right: 30px;
   justify-content: center;
   left: 30px;
+  .button {
+    z-index: 3;
+  }
   @media screen and (max-width: $breakpoint-tablet) {
     left: 30px;
     right: 30px;

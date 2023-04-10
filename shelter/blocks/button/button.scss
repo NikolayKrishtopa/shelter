@@ -16,7 +16,7 @@
   transition: background-color 0.5s ease;
   cursor: pointer;
   font-family: 'Georgia', serif;
-  z-index: 3;
+
   @media (hover: none) {
     background-color: $gold;
   }
@@ -25,7 +25,9 @@
 .card:hover .button {
   background-color: $gold-hover;
 }
-
+// #carouselNextBtn {
+//   z-index: 3;
+// }
 .button_style_weak {
   border: 2px solid $gold;
   background-color: transparent;
