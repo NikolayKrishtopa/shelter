@@ -224,9 +224,11 @@ export default class Pages {
   };
 
   openSideBar = () => {
+    this.menu.style.transform = 'translateX(100%)';
     this.isSideBarOpen = true;
     const timer = setTimeout(() => {
-      this.menu.style.transform = 'none';
+      this.menu.style.transform = 'translateX(0)';
+      this.burgerBtn.style.transform = 'rotate(90deg)';
       return clearTimeout(timer);
     }, '0');
     this.lockScroll();
@@ -235,10 +237,13 @@ export default class Pages {
 
   closeSideBar = () => {
     this.menu.style.transform = 'translateX(100%)';
+    console.log(this.navbar.querySelector('.navbar__burger-btn'));
+    this.burgerBtn.style.transform = 'none';
     const timer = setTimeout(() => {
       this.isSideBarOpen = false;
       this.unlockScroll();
       this.renderSideBar();
+      this.menu.style.transform = 'none';
       return clearTimeout(timer);
     }, '300');
   };

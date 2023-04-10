@@ -69,9 +69,9 @@
   gap: 35px;
   align-items: center;
   cursor: auto;
-  transform: translateX(100%);
   transition: transform 0.5s ease;
   @media screen and (max-width: $breakpoint-extra-m) {
+    transform: translateX(100%);
     flex-direction: column;
     gap: 40px;
     background-color: $font-button-color;
@@ -142,7 +142,6 @@
     display: flex;
   }
   &_open {
-    transform: rotate(90deg);
     .navbar__burger-btn-strip {
       background-color: $gold;
     }
