@@ -118,12 +118,42 @@ export default class Pages {
     this.itemsNotRendered = this.petsList.slice(
       this.itemsQtyPerScreen * this.curPage
     );
-    // console.log(this.itemsToRender);
-    // console.log(this.itemsNotRendered);
-    console.log(this.petsList);
   };
+  slideRight = () => {
+    this.petsContainer.style.transform = `translateX(${
+      270 * this.itemsQtyPerScreen
+    }px)`;
+    this.petsContainer.style.opacity = '0';
 
+    setTimeout(() => {
+      this.petsContainer.style.transform = `translateX(-${
+        270 * this.itemsQtyPerScreen
+      }px)`;
+    }, '100');
+
+    setTimeout(() => {
+      this.petsContainer.style.opacity = '100%';
+      this.petsContainer.style.transform = `translateX(0)`;
+    }, '200');
+  };
+  slideLeft = () => {
+    this.petsContainer.style.transform = `translateX(-${
+      270 * this.itemsQtyPerScreen
+    }px)`;
+    this.petsContainer.style.opacity = '0';
+    setTimeout(() => {
+      this.petsContainer.style.transform = `translateX(${
+        270 * this.itemsQtyPerScreen
+      }px)`;
+    }, '100');
+
+    setTimeout(() => {
+      this.petsContainer.style.opacity = '100%';
+      this.petsContainer.style.transform = `translateX(0)`;
+    }, '200');
+  };
   handleCarouselNext = () => {
+    this.slideLeft();
     switch (this.lastAction) {
       case 'next':
         this.petsList = [
@@ -134,7 +164,6 @@ export default class Pages {
         this.lastAction = 'next';
         break;
       case undefined:
-        console.log('here');
         this.petsList = [
           ...this.shuffle(this.itemsNotRendered),
           ...this.itemsToRender,
@@ -154,7 +183,7 @@ export default class Pages {
   };
 
   handleCarouselPrev = () => {
-    console.log(this.lastAction);
+    this.slideRight();
     this.petsList = [
       ...this.petsList.slice(this.petsList.length - this.itemsQtyPerScreen),
       ...this.petsList.slice(0, this.petsList.length - this.itemsQtyPerScreen),
