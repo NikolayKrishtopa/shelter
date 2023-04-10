@@ -1,6 +1,9 @@
 .clickable {
   cursor: pointer;
   transition: opacity 0.5s ease;
+  @media (hover: none) {
+    opacity: 1;
+  }
 }
 .clickable:hover {
   opacity: 50%;

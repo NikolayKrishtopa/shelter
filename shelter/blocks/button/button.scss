@@ -16,6 +16,9 @@
   transition: background-color 0.5s ease;
   cursor: pointer;
   font-family: 'Georgia', serif;
+  @media (hover: none) {
+    background-color: $gold;
+  }
 }
 .button:hover,
 .card:hover .button {
@@ -26,6 +29,14 @@
   border: 2px solid $gold;
   background-color: transparent;
   padding: 14px 44px;
+  @media (hover: none) {
+    background-color: transparent;
+  }
+}
+.button_style_weak:hover {
+  @media (hover: none) {
+    background-color: transparent;
+  }
 }
 .button_state_inactive {
   border-color: $font-extra-color;

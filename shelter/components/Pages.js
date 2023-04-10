@@ -276,7 +276,10 @@ export default class Pages {
     });
     this.burgerBtn.addEventListener('click', this.toggleSideBar);
     this.navbar.addEventListener('click', (e) => {
-      if (e.target.classList.contains('navbar__menu-link')) {
+      if (
+        e.target.classList.contains('navbar__menu-link') ||
+        e.target.classList.contains('navbar__nav')
+      ) {
         this.toggleSideBar();
       }
     });

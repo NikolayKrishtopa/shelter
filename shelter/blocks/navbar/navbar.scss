@@ -13,22 +13,24 @@
 }
 .navbar__nav {
   @media screen and (max-width: $breakpoint-extra-m) {
-    // transform: translateX(100%);
-    position: absolute;
+    transform: translateX(100%);
+    position: fixed;
+    display: flex;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     display: flex;
+    cursor: pointer;
     background-color: rgba(41, 41, 41, 0.6);
     justify-content: flex-end;
     z-index: 3;
-    display: none;
-    // transition: transform 0.5s ease;
+    // display: none;
+    transition: transform 0.5s ease;
   }
   &_open {
     display: flex;
-    // transform: none;
+    transform: none;
   }
 }
 .navbar__logo {
@@ -66,6 +68,7 @@
   display: flex;
   gap: 35px;
   align-items: center;
+  cursor: auto;
   @media screen and (max-width: $breakpoint-extra-m) {
     flex-direction: column;
     gap: 40px;
@@ -132,6 +135,7 @@
   transition: transform 0.5s ease, opacity 0.5s ease;
   z-index: 5;
   cursor: pointer;
+
   @media screen and (max-width: $breakpoint-extra-m) {
     display: flex;
   }
@@ -143,6 +147,9 @@
   }
   &:hover {
     opacity: 0.5;
+    @media (hover: none) {
+      opacity: 1;
+    }
   }
 }
 .navbar__burger-btn-strip {
