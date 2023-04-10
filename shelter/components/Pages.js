@@ -289,7 +289,7 @@ export default class Pages {
   };
   setItemsQtyPerScreen = (width) => {
     if (this.currentPage === this.pages.main) {
-      if (width <= 760) {
+      if (width <= 767) {
         this.itemsQtyPerScreen = 1;
       } else if (width <= 1100) {
         this.itemsQtyPerScreen = 2;
