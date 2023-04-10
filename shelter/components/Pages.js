@@ -128,6 +128,7 @@ export default class Pages {
       ...this.itemsToRender,
     ];
     this.renderPets();
+    console.log('NEXT');
   };
 
   handleCarouselPrev = () => {
