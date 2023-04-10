@@ -35,9 +35,11 @@ export default class Pages {
     this.curPage = 1;
     this.isSideBarOpen = false;
     this.navbar = document.querySelector('.navbar__nav');
+    this.menu = document.querySelector('.navbar__menu');
     this.burgerBtn = document.querySelector('.navbar__burger-btn');
     this.initiate();
   }
+
   renderSideBar = () => {
     if (this.isSideBarOpen) {
       this.navbar.classList.add('navbar__nav_open');
@@ -47,6 +49,7 @@ export default class Pages {
       this.burgerBtn.classList.remove('navbar__burger-btn_open');
     }
   };
+
   calculatePetsList = () => {
     this.petsList =
       this.currentPage === this.pages.main
@@ -60,6 +63,7 @@ export default class Pages {
             ...this.shuffle(this.pets),
           ];
   };
+
   renderBtnState = () => {
     if (this.curPage === this.pagesQty) {
       this.nextPageBtn.inactive = true;
@@ -119,39 +123,46 @@ export default class Pages {
       this.itemsQtyPerScreen * this.curPage
     );
   };
+
   slideRight = () => {
     this.petsContainer.style.transform = `translateX(${
       270 * this.itemsQtyPerScreen
     }px)`;
     this.petsContainer.style.opacity = '0';
 
-    setTimeout(() => {
+    const moveTimer = setTimeout(() => {
       this.petsContainer.style.transform = `translateX(-${
         270 * this.itemsQtyPerScreen
       }px)`;
+      return clearTimeout(moveTimer);
     }, '100');
 
-    setTimeout(() => {
+    const showTimer = setTimeout(() => {
       this.petsContainer.style.opacity = '100%';
       this.petsContainer.style.transform = `translateX(0)`;
+      return clearTimeout(showTimer);
     }, '200');
   };
+
   slideLeft = () => {
     this.petsContainer.style.transform = `translateX(-${
       270 * this.itemsQtyPerScreen
     }px)`;
     this.petsContainer.style.opacity = '0';
-    setTimeout(() => {
+    const moveTimer = setTimeout(() => {
       this.petsContainer.style.transform = `translateX(${
         270 * this.itemsQtyPerScreen
       }px)`;
+      return clearTimeout(moveTimer);
     }, '100');
 
-    setTimeout(() => {
+    const hideTimer = setTimeout(() => {
       this.petsContainer.style.opacity = '100%';
       this.petsContainer.style.transform = `translateX(0)`;
+      return clearTimeout(hideTimer);
     }, '200');
   };
+
   handleCarouselNext = () => {
     this.slideLeft();
     switch (this.lastAction) {
@@ -204,10 +215,38 @@ export default class Pages {
     this.pagesQty = Math.ceil(this.petsList.length / this.itemsQtyPerScreen);
   };
 
-  toggleSideBar = () => {
-    this.isSideBarOpen = !this.isSideBarOpen;
+  lockScroll = () => {
+    document.body.style.overflow = 'hidden';
+  };
+
+  unlockScroll = () => {
+    document.body.style.overflow = 'auto';
+  };
+
+  openSideBar = () => {
+    this.isSideBarOpen = true;
+    const timer = setTimeout(() => {
+      this.menu.style.transform = 'none';
+      return clearTimeout(timer);
+    }, '0');
+    this.lockScroll();
     this.renderSideBar();
   };
+
+  closeSideBar = () => {
+    this.menu.style.transform = 'translateX(100%)';
+    const timer = setTimeout(() => {
+      this.isSideBarOpen = false;
+      this.unlockScroll();
+      this.renderSideBar();
+      return clearTimeout(timer);
+    }, '300');
+  };
+
+  toggleSideBar = () => {
+    this.isSideBarOpen ? this.closeSideBar() : this.openSideBar();
+  };
+
   hideSideBar = () => {
     this.isSideBarOpen = false;
     this.renderSideBar();
@@ -290,6 +329,7 @@ export default class Pages {
   renderPageNo = () => {
     this.curPageLabel.textContent = this.curPage;
   };
+
   setItemsQtyPerScreen = (width) => {
     if (this.currentPage === this.pages.main) {
       if (width <= 767) {
@@ -309,6 +349,7 @@ export default class Pages {
       }
     }
   };
+
   render = () => {
     this.setItemsQtyPerScreen(window.innerWidth);
     switch (this.currentPage) {
@@ -349,6 +390,7 @@ export default class Pages {
         break;
     }
   };
+
   initiate = () => {
     this.calculatePetsList();
     this.setListeners();
