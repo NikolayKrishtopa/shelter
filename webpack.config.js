@@ -8,10 +8,10 @@ module.exports = (env) => {
   const PORT = env.port || 8080;
   return {
     entry: {
-      main: './shelter/pages/index.js',
+      main: './src/pages/index.js',
     },
     output: {
-      path: path.resolve(__dirname, 'dist','shelter'),
+      path: path.resolve(__dirname, 'dist'),
       filename: 'main.js',
       publicPath: '',
     },
@@ -19,7 +19,7 @@ module.exports = (env) => {
     devServer:
       mode === 'development'
         ? {
-            static: path.resolve(__dirname, 'shelter', 'dist'),
+            static: path.resolve(__dirname, 'dist'),
             open: true,
             compress: true,
             port: PORT,
@@ -72,7 +72,7 @@ module.exports = (env) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './shelter/index.html',
+        template: './src/index.html',
       }),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin(),
