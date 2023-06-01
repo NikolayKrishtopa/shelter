@@ -1,0 +1,132 @@
+.pets {
+  padding: 80px 105px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  background-color: $background-light-grey;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  @media screen and (max-width: $breakpoint-tablet) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media screen and (max-width: $breakpoint-extra-m) {
+    gap: 42px;
+  }
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    padding: 42px 10px;
+  }
+}
+.pets_state_pets {
+  padding-left: $side-padding;
+  padding-right: $side-padding;
+  @media screen and (max-width: $breakpoint-tablet) {
+    gap: 30px;
+  }
+  @media screen and (max-width: $breakpoint-mobile-big) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.pets__container {
+  width: 100%;
+  max-width: 990px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  position: relative;
+  @media screen and (max-width: $breakpoint-extra-big) {
+    max-width: 580px;
+  }
+  @media screen and (max-width: $breakpoint-extra-m) {
+    max-width: 270px;
+  }
+}
+.pets__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+.pets__container_state_pets {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
+  grid-template-rows: auto;
+  column-gap: unset;
+  @media screen and (max-width: 1199px) {
+    grid-template-columns: repeat(3, 270px);
+    max-width: 890px;
+  }
+  @media screen and (max-width: 970px) {
+    grid-template-columns: repeat(2, 270px);
+    max-width: 580px;
+  }
+  @media screen and (max-width: $breakpoint-tablet) {
+    row-gap: 30px;
+  }
+  @media screen and (max-width: 660px) {
+    grid-template-columns: repeat(1, 270px);
+    max-width: 270px;
+    margin-top: 12px;
+  }
+}
+
+.pets__title {
+  max-width: 400px;
+}
+.pets__pagination {
+  display: flex;
+  gap: 20px;
+  @media screen and (max-width: $breakpoint-tablet) {
+    margin-top: 7px;
+  }
+  @media screen and (max-width: $breakpoint-mobile) {
+    gap: 10px;
+    margin: 0;
+  }
+}
+.pets__nav-buttons {
+  display: flex;
+  position: absolute;
+  padding-top: 30px;
+  right: 30px;
+  justify-content: center;
+  left: 30px;
+  .button {
+    z-index: 3;
+  }
+  @media screen and (max-width: $breakpoint-tablet) {
+    left: 30px;
+    right: 30px;
+    padding-top: 35px;
+  }
+  @media screen and (max-width: $breakpoint-extra-m) {
+    position: static;
+    padding-top: 0;
+    justify-content: center;
+    align-self: center;
+    margin-top: -20px;
+  }
+}
+.pets__nav-buttons-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  gap: 80px;
+  @media screen and (max-width: $breakpoint-extra-big) {
+    max-width: 708px;
+  }
+}
+.pets__card {
+  z-index: 3;
+}
